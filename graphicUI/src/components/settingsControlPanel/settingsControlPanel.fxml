@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox alignment="CENTER" prefHeight="94.0" prefWidth="236.0" spacing="15.0" stylesheets="@../../util/leftMenu_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.settingsControlPanel.SettingsControlPanelController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="94.0" prefWidth="126.0" spacing="5.0">
+         <children>
+            <ComboBox fx:id="styleComboBox" onAction="#handleStyleSelectionAction" prefHeight="29.0" prefWidth="145.0" styleClass="combo-box" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="89.0" prefWidth="105.0" spacing="5.0">
+         <children>
+            <HBox fx:id="animationsOption" alignment="CENTER" prefHeight="31.0" prefWidth="101.0" />
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets left="5.0" />
+   </padding>
+</HBox>

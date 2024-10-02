@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="mainContinaerGridPane" alignment="CENTER" hgap="7.0" minHeight="-Infinity" prefHeight="156.0" prefWidth="1231.0" stylesheets="@header_green.css" vgap="5.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.header.HeaderController">
+   <columnConstraints>
+      <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="250.0" minWidth="234.66668701171875" prefWidth="236.0" />
+      <ColumnConstraints hgrow="NEVER" />
+      <ColumnConstraints halignment="CENTER" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+      <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" />
+      <ColumnConstraints halignment="CENTER" hgrow="NEVER" />
+      <ColumnConstraints halignment="CENTER" hgrow="NEVER" />
+      <ColumnConstraints hgrow="NEVER" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+      <ColumnConstraints hgrow="NEVER" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+      <ColumnConstraints hgrow="NEVER" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="ALWAYS" />
+      <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="60.0" minHeight="60.0" vgrow="NEVER" />
+      <RowConstraints valignment="CENTER" vgrow="NEVER" />
+      <RowConstraints minHeight="20.0" prefHeight="20.0" valignment="CENTER" vgrow="ALWAYS" />
+   </rowConstraints>
+   <children>
+      <Pane maxHeight="50.0" minHeight="60.0" prefHeight="50.0" prefWidth="200.0" styleClass="action-line" GridPane.columnSpan="6" GridPane.rowIndex="2" />
+      <Button fx:id="LoadFileButton" alignment="CENTER" mnemonicParsing="false" onAction="#LoadFileButtonActionListener" prefHeight="40.0" prefWidth="170.0" styleClass="action-button" text="Load File Button" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="FilePathLabel" minHeight="39.0" minWidth="40.0" prefHeight="39.0" prefWidth="1303.0" styleClass="file-path" text="Currently Loaded File path" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Pane maxHeight="50.0" minHeight="60.0" prefHeight="50.0" prefWidth="200.0" styleClass="action-line" GridPane.columnSpan="5" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.vgrow="NEVER">
+         <children>
+            <Label fx:id="SelectedCellIDLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="10.0" prefHeight="40.0" prefWidth="170.0" styleClass="header-label" text="Selected Cell ID">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </Pane>
+      <Label fx:id="OriginalCellValueLabel" alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="200.0" prefHeight="40.0" prefWidth="200.0" styleClass="header-label" text="Original Cell value" wrapText="true" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.vgrow="NEVER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="300.0" prefHeight="40.0" prefWidth="270.0" text="Action line" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.vgrow="NEVER">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="UpdateValueButton" contentDisplay="CENTER" maxWidth="180.0" minHeight="40.0" minWidth="180.0" mnemonicParsing="false" onAction="#UpdateValueButtonActionListener" prefHeight="40.0" prefWidth="180.0" styleClass="action-button" text="Update value" textAlignment="JUSTIFY" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.vgrow="NEVER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="LastUpdateCellVersionLabel" alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="200.0" prefHeight="40.0" prefWidth="200.0" styleClass="header-label" text="Last update cell version" GridPane.columnIndex="4" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.vgrow="NEVER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="VersionSelector" maxWidth="190.0" minWidth="190.0" prefHeight="43.0" prefWidth="190.0" promptText="Version Selector" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+         <GridPane.margin>
+            <Insets top="10.0" />
+         </GridPane.margin>
+         <styleClass>
+            <String fx:value="action-button" />
+            <String fx:value="combo-box-popup" />
+         </styleClass>
+      </ComboBox>
+      <Label styleClass="title-label" text="Shticell" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
+         <font>
+            <Font name="Guttman-Aharoni Bold" size="32.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="25.0" top="15.0" />
+         </GridPane.margin>
+      </Label>
+   </children>
+</GridPane>

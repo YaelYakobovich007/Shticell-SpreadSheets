@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="EngineJar">
+    <output-path>$PROJECT_DIR$/out/artifacts/EngineJar</output-path>
+    <root id="archive" name="EngineJar.jar">
+      <element id="module-output" name="engine" />
+      <element id="library" level="project" name="jaxb-xjc" />
+      <element id="library" level="project" name="jaxb-impl" />
+      <element id="library" level="project" name="jakarta.xml.bind-api" />
+      <element id="library" level="project" name="jaxb-jxc" />
+      <element id="library" level="project" name="jaxb-core" />
+      <element id="library" level="project" name="jakarta.activation-api" />
+      <element id="library" level="project" name="angus-activation" />
+      <element id="module-output" name="dto" />
+    </root>
+  </artifact>
+</component>

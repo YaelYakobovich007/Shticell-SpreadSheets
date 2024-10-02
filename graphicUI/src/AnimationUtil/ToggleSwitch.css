@@ -1,0 +1,20 @@
+.toggle-checkbox {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}
+
+.toggle-background {
+    -fx-fill: lightgray;
+}
+
+.toggle-circle {
+    -fx-fill: #000000;
+}
+
+.toggle-switch-on .toggle-background {
+    -fx-fill: limegreen;
+}
+
+.toggle-switch-on .toggle-circle {
+    -fx-fill: rgb(58, 108, 94);
+}

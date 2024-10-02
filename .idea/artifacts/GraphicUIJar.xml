@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="GraphicUIJar">
+    <output-path>$PROJECT_DIR$/out/artifacts/GraphicUIJar</output-path>
+    <root id="archive" name="GraphicUIJar.jar">
+      <element id="module-output" name="graphicUI" />
+      <element id="library" level="project" name="javafx-swt" />
+      <element id="library" level="project" name="javafx.base" />
+      <element id="library" level="project" name="javafx.controls" />
+      <element id="library" level="project" name="javafx.fxml" />
+      <element id="library" level="project" name="javafx.graphics" />
+      <element id="library" level="project" name="javafx.media" />
+      <element id="library" level="project" name="javafx.swing" />
+      <element id="library" level="project" name="javafx.web" />
+      <element id="module-output" name="engine" />
+      <element id="library" level="project" name="jaxb-xjc" />
+      <element id="library" level="project" name="jaxb-impl" />
+      <element id="library" level="project" name="jakarta.xml.bind-api" />
+      <element id="library" level="project" name="jaxb-jxc" />
+      <element id="library" level="project" name="jaxb-core" />
+      <element id="library" level="project" name="jakarta.activation-api" />
+      <element id="library" level="project" name="angus-activation" />
+      <element id="module-output" name="dto" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fx:id="mainContinerScrollPane" fitToHeight="true" fitToWidth="true" stylesheets="@../../util/popupWindow_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.NewRangePopup.NewRangePopupController">
+    <content>
+        <FlowPane alignment="CENTER" style="-fx-background-color: white;">
+            <children>
+                <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="215.0" prefWidth="368.0" spacing="20.0" style="-fx-background-color: white;">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="33.0" prefWidth="160.0" styleClass="label-primary" text="Create New Range" textAlignment="JUSTIFY" textFill="#26aa24" />
+
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                            <children>
+                                <GridPane hgap="5.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label styleClass="label-primary" text="Name:" GridPane.rowIndex="1" />
+                                        <TextField fx:id="fromBoundariesTextField" promptText="from e.g A4" styleClass="text-field-custom" GridPane.columnIndex="1" />
+                                        <Label styleClass="label-primary" text="Boundaries:" />
+                                        <TextField fx:id="rangeNameTextField" styleClass="text-field-custom" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="toBoundariesTextField" promptText="to e.g A7" styleClass="text-field-custom" GridPane.columnIndex="2" />
+                                    </children>
+                                    <padding>
+                                        <Insets left="10.0" />
+                                    </padding>
+                                </GridPane>
+                            </children>
+                        </HBox>
+
+                        <HBox alignment="CENTER" prefHeight="61.0" prefWidth="368.0" spacing="20.0" VBox.vgrow="NEVER">
+                            <children>
+                                <Button maxHeight="35.0" maxWidth="100.0" minHeight="35.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleCancelButtonAction" prefHeight="35.0" prefWidth="100.0" styleClass="button-secondary" text="Cancel" />
+                                <Button maxHeight="35.0" maxWidth="100.0" minHeight="35.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleOKButtonAction" prefHeight="35.0" prefWidth="100.0" styleClass="button-primary" text="OK" />
+                            </children>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </FlowPane>
+    </content>
+</ScrollPane>

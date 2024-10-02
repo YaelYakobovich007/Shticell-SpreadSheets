@@ -1,0 +1,51 @@
+/* Main VBox style */
+#mainVbox {
+    padding: 20px;
+}
+
+/* Button style */
+.button {
+    -fx-background-color: #0078D7; /* Button background */
+    -fx-text-fill: white;           /* Button text color */
+    -fx-font-size: 12px;            /* Button font size */
+    -fx-padding: 5px 10px;          /* Button padding */
+    -fx-cursor: hand;               /* Hand cursor on hover */
+}
+
+.button:hover {
+    -fx-background-color: #005A9E;  /* Darker shade on hover */
+}
+
+/* Label style */
+.label-primary {
+    -fx-font-weight: bold;           /* Bold labels */
+    -fx-font-size: 12px;             /* Label font size */
+    -fx-text-fill: #333;             /* Text color */
+}
+
+/* Slider style */
+.slider {
+    -fx-background-color: #E0E0E0;   /* Slider track color */
+}
+
+.slider .thumb {
+    -fx-background-color: #0078D7;   /* Thumb color */
+    -fx-min-width: 15px;             /* Thumb width */
+    -fx-min-height: 15px;            /* Thumb height */
+    -fx-background-radius: 7.5;      /* Rounded thumb */
+}
+
+.slider .track {
+    -fx-background-color: #E0E0E0;   /* Track color */
+}
+
+.slider .tick-mark {
+    -fx-background-color: #0078D7;   /* Tick mark color */
+    -fx-pref-height: 10px;           /* Tick mark height */
+    -fx-pref-width: 2px;             /* Tick mark width */
+}
+
+/* HBox style */
+.hbox {
+    -fx-spacing: 10;                  /* Space between children */
+}

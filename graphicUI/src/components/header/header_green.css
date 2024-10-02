@@ -1,0 +1,70 @@
+.action-button{
+    -fx-background-color: #83c583;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5;
+    -fx-border-radius: 10;
+
+}
+
+
+.header-label{
+    -fx-background-color: #27a38c;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+
+
+}
+.file-path{
+    -fx-background-color: #27a38c;
+    -fx-text-fill: BLACK;
+    -fx-font-size: 14px;
+    -fx-border-radius: 80;
+    -fx-background-radius: 10;
+    -fx-border-radius: 20;
+}
+
+.title-label {
+    -fx-text-fill: #2b6a2b; /* Darker green for better contrast */
+    -fx-font-size: 30px; /* Larger font size for more emphasis */
+    -fx-font-family: "Guttman-Aharoni Bold"; /* Ensure font is bold and prominent */
+    -fx-font-weight: bold; /* Extra boldness if necessary */
+    -fx-background-color: transparent; /* Keeping background transparent */
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.25) , 8,0.5,0,1 ); /* Adds a subtle shadow for depth */
+    -fx-padding: 10; /* Add some padding to the text */
+    -fx-text-alignment: center; /* Center the text */
+}
+
+.action-line{
+    -fx-background-color: rgba(128, 128, 128, 0.23);
+    -fx-background-radius: 10;
+    -fx-border-radius: 20;
+    -fx-font-size: 14px;
+}
+
+
+
+.combo-box-popup .list-view {
+    -fx-max-height: 150px; /* תגדיר את הרוחב הרצוי */
+    -fx-pref-height: 150px;
+    -fx-min-height: 150px;
+}
+
+/* Make ScrollPane transparent */
+.transparent-scrollpane {
+    -fx-background-color: rgba(255, 255, 255, 0.5); /* White with 50% opacity */
+    -fx-background-insets: 0;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+}
+
+/* Customize scroll bars if needed */
+.transparent-scrollpane .scroll-bar {
+    -fx-opacity: 0.6; /* Scroll bars will also be transparent */
+}
+
+.transparent-scrollpane .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.3); /* Transparent scroll bar thumb */
+}

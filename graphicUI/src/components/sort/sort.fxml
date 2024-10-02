@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fx:id="mainContianerScrollPane" fitToHeight="true" fitToWidth="true" stylesheets="@../../util/popupWindow_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.sort.SortController">
+   <content>
+      <FlowPane alignment="CENTER" hgap="10" style="-fx-background-color: white;" vgap="10">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="596.0" spacing="20.0" style="-fx-background-color: white;">
+               <children>
+                  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="10.0" prefWidth="150.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="175.0" minWidth="10.0" prefWidth="156.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="146.0" minWidth="10.0" prefWidth="144.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="150.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="80.66665458679199" minHeight="10.0" prefHeight="52.66665840148926" vgrow="NEVER" />
+                        <RowConstraints maxHeight="235.33331807454428" minHeight="10.0" prefHeight="154.66670735677084" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="334.0" minHeight="10.0" prefHeight="192.99995930989587" valignment="CENTER" vgrow="ALWAYS" />
+                     </rowConstraints>
+                     <children>
+                        <Label styleClass="label-primary" text="Sort range:" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="197.0" styleClass="label-primary" text="Sort range" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                        <ScrollPane fx:id="sortColumnsScrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="500.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                           <content>
+                              <VBox fx:id="sortColumnsContainer" prefHeight="137.0" prefWidth="0.0" spacing="20.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="286.0" spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="100.0" styleClass="label-primary" text="Sort by:">
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <ComboBox fx:id="firstSortCoulmnComboBox" disable="true" prefHeight="37.0" prefWidth="193.0" promptText="Select column" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+
+                        <Button minHeight="35.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleSelectRangeAction" prefHeight="35.0" prefWidth="100.0" styleClass="button-primary" text="Select" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </GridPane.margin>
+                           <padding>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </padding></Button>
+                        <TextField fx:id="fromRangeTextField" maxHeight="30.0" maxWidth="143.0" minHeight="30.0" minWidth="100.0" prefHeight="30.0" prefWidth="143.0" promptText="from eg.A4" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="toRangeTextField" maxHeight="30.0" maxWidth="143.0" minHeight="30.0" minWidth="100.0" prefHeight="30.0" prefWidth="143.0" promptText="to eg.A7" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+                     </children>
+                  </GridPane>
+
+                  <!-- Add sort column button and bottom action buttons -->
+                  <VBox prefHeight="128.0" prefWidth="600.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="addSortColumnButton" minHeight="35.0" minWidth="200.0" mnemonicParsing="false" onAction="#handleAddSortColumnAction" prefHeight="35.0" prefWidth="200.0" styleClass="button-primary" text="Add another sort column">
+                           <VBox.margin>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </padding></Button>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                           <children>
+                              <Button fx:id="cancelButton" minHeight="35.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleCancelAction" prefHeight="35.0" prefWidth="100.0" styleClass="button-secondary" text="Cancel">
+                                 <HBox.margin>
+                                    <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                 </padding></Button>
+                              <Button fx:id="sortButton" disable="true" minHeight="35.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleSortAction" prefHeight="35.0" prefWidth="100.0" styleClass="button-primary" text="Sort">
+                                 <HBox.margin>
+                                    <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                 </padding></Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" right="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </FlowPane>
+   </content>
+</ScrollPane>

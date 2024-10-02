@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="mainContianerVbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" stylesheets="@../../util/leftMenu_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.rangePanel.RangePanelController">
+   <children>
+      <Label maxHeight="35.0" maxWidth="210.0" minHeight="35.0" minWidth="210.0" prefHeight="0.0" prefWidth="210.0" text="  view Range:">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0">
+               <image>
+                  <Image url="@../../resources/icons/research-center.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="0.48" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </Label>
+      <ComboBox fx:id="viewRangeComboBox" maxHeight="40.0" maxWidth="200.0" minHeight="40.0" minWidth="200.0" onAction="#handleViewRangeAction" prefHeight="40.0" prefWidth="200.0" promptText="select range to view" styleClass="combo-box" />
+      <Button fx:id="AddNewRangeButton" alignment="TOP_LEFT" maxHeight="40.0" maxWidth="200.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#handleAddNewRangeAction" prefHeight="40.0" prefWidth="200.0" text="    Add New Range">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0">
+               <image>
+                  <Image url="@../../resources/icons/add.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="0.66" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="RemoveExistingRangeButton" alignment="TOP_LEFT" maxHeight="40.0" maxWidth="200.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#handleRemoveExistingRangeAction" prefHeight="40.0" prefWidth="200.0" text="Remove Existing Range">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0">
+               <image>
+                  <Image url="@../../resources/icons/delete2.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="0.3" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</VBox>

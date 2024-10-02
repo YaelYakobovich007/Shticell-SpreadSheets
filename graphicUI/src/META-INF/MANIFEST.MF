@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: mainStart.Main
+Class-Path: lib/EngineJar.jar lib/DTOJar.jar jaxb/angus-activation.jar jaxb/jakarta.activation-api.jar jaxb/jakarta.xml.bind-api.jar jaxb/jaxb-core.jar jaxb/jaxb-impl.jar jaxb/jaxb-jxc.jar jaxb/jaxb-xjc.jar
+
+

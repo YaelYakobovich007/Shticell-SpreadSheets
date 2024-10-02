@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane alignment="CENTER" maxHeight="101.0" minHeight="62.0" prefHeight="101.0" prefWidth="1276.0" stylesheets="@../../util/leftMenu_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.sheetDesign.SheetDesignController">
+    <columnConstraints>
+        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="180.0" minWidth="180.0" prefWidth="180.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="150.0" minWidth="134.66662597656253" prefWidth="134.66662597656253" />
+        <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="152.3333129882813" minWidth="10.0" prefWidth="139.6666870117188" />
+      <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="150.00016276041663" minWidth="121.99983723958337" prefWidth="150.00016276041663" />
+      <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="134.00016276041674" minWidth="10.0" prefWidth="106.66650390625" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints maxHeight="28.0" minHeight="20.0" prefHeight="20.666656494140625" valignment="CENTER" vgrow="NEVER" />
+      <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" valignment="CENTER" vgrow="NEVER" />
+      <RowConstraints minHeight="30.0" vgrow="NEVER" />
+    </rowConstraints>
+    <children>
+        <Label styleClass="label" text=" Cell background color" GridPane.rowIndex="1" />
+        <Label styleClass="label" text="Text color" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <Label styleClass="label" text="Alignment" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+        <Label styleClass="label" text="Row height" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+        <Label styleClass="label" text="Column width" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+        <Spinner fx:id="rowHeightSpinner" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+        <Spinner fx:id="columnWidthSpinner" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+        <VBox fx:id="colorFillCheckBox" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" GridPane.columnIndex="10" GridPane.rowIndex="3" />
+        <ColorPicker fx:id="backgroundColorPicker" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" styleClass="combo-box" GridPane.rowIndex="3" />
+        <ColorPicker fx:id="TextColorPicker" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" styleClass="combo-box" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <ComboBox fx:id="alignmentComboBox" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="102.0" styleClass="combo-box" GridPane.columnIndex="4" GridPane.rowIndex="3">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Left" />
+                    <String fx:value="Center" />
+                    <String fx:value="Right" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Label styleClass="label" text="color &amp; fill" GridPane.columnIndex="10" GridPane.rowIndex="1" />
+
+        <HBox prefHeight="58.0" prefWidth="256.0" GridPane.columnIndex="12" GridPane.columnSpan="3" GridPane.rowIndex="3">
+            <padding>
+                <Insets left="20.0" />
+            </padding>
+            <children>
+                <fx:include fx:id="settingsControlPanel" source="../../components/settingsControlPanel/settingsControlPanel.fxml" />
+            </children>
+        </HBox>
+      <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <image>
+            <Image url="@../../resources/icons/color-wheel.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.rowIndex="2">
+         <image>
+            <Image url="@../../resources/icons/color-wheel.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+         <image>
+            <Image url="@../../resources/icons/align-left.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="8" GridPane.rowIndex="2">
+         <image>
+            <Image url="@../../resources/icons/width.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
+         <image>
+            <Image url="@../../resources/icons/height.png" />
+         </image>
+      </ImageView>
+      <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="7.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="3" />
+      <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="3" />
+      <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" GridPane.rowSpan="3" />
+      <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="7" GridPane.rowIndex="1" GridPane.rowSpan="3" />
+      <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="9" GridPane.rowIndex="1" GridPane.rowSpan="3" />
+      <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="11" GridPane.rowIndex="1" GridPane.rowSpan="3" />
+      <Label text="Style selection:" GridPane.columnIndex="12" GridPane.rowIndex="1" />
+      <Label text="Animations" GridPane.columnIndex="14" GridPane.rowIndex="1" />
+      <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="13" GridPane.rowIndex="1" GridPane.rowSpan="3" />
+
+    </children>
+</GridPane>

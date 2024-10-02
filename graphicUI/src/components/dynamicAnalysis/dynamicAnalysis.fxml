@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+
+<ScrollPane fx:id="mainContinerScrollPane" fitToHeight="true" fitToWidth="true" stylesheets="@../../util/popupWindow_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.dynamicAnalysis.DynamicAnalysisController">
+    <content>
+        <FlowPane alignment="CENTER" styleClass="pane-white">
+            <children>
+                <StackPane fx:id="mainStackPane" prefHeight="307.0" prefWidth="493.0">
+                    <children>
+                        <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="493.0">
+                            <!-- Column Constraints -->
+                            <columnConstraints>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="202.666748046875" minWidth="100.0" prefWidth="202.666748046875" />
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="235.3333740234375" minWidth="100.0" prefWidth="180.66670735677084" />
+                        <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="144.6666259765625" minWidth="86.6666259765625" prefWidth="109.33329264322919" />
+                            </columnConstraints>
+
+                            <!-- Row Constraints -->
+                            <rowConstraints>
+                                <RowConstraints minHeight="30.0" prefHeight="40.0" vgrow="NEVER" />
+                                <RowConstraints minHeight="30.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="30.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="30.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="30.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+
+                            <!-- Labels and Input Fields -->
+                            <Label fx:id="selectCellForAnalysisLabel" alignment="CENTER_RIGHT" styleClass="label-primary" text="Select cell for analysis:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                            <TextField fx:id="cellTextField" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" promptText="Enter cell (e.g., A3)" styleClass="text-field-custom" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                            <Label alignment="CENTER_RIGHT" styleClass="label-primary" text="Min Value:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                            <TextField fx:id="minValueTextField" disable="true" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" styleClass="text-field-custom" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                            <Label alignment="CENTER_RIGHT" styleClass="label-primary" text="Max Value:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                            <TextField fx:id="maxValueTextField" disable="true" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" styleClass="text-field-custom" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                            <Label alignment="CENTER_RIGHT" styleClass="label-primary" text="Step Size:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                            <TextField fx:id="stepSizeTextField" disable="true" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" styleClass="text-field-custom" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                            <!-- Buttons (Start Analysis and Cancel) -->
+                            <HBox alignment="CENTER" prefHeight="40.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                <children>
+                                    <Button maxHeight="35.0" maxWidth="110.0" minHeight="35.0" minWidth="110.0" onAction="#handleCancelAction" prefHeight="35.0" prefWidth="110.0" styleClass="button-secondary" text="Cancel" />
+                                    <Button fx:id="startAnalysisButton" disable="true" maxHeight="35.0" maxWidth="110.0" minHeight="35.0" minWidth="110.0" onAction="#startAnalysis" prefHeight="35.0" prefWidth="110.0" styleClass="button-primary" text="Start Analysis" />
+                                </children>
+                        <GridPane.margin>
+                           <Insets right="15.0" />
+                        </GridPane.margin>
+                            </HBox>
+                     <Label fx:id="cellValueLabel" styleClass="label-primary" text="Cell Value:" visible="false" />
+                     <Button fx:id="selectCellButton" mnemonicParsing="false" onAction="#handleSelectCellAction" styleClass="button-primary" text="select" GridPane.columnIndex="2" />
+                        </GridPane>
+                    </children>
+                </StackPane>
+            </children>
+        </FlowPane>
+    </content>
+</ScrollPane>
