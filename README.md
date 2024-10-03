@@ -25,6 +25,11 @@
 <br/>
 
 # :heavy_check_mark: **Core Functionalities** <a name="core-functionalities"/>
+
+\
+\
+<img src="assets/images/shticellApp.png" width="60%" alt="shticellApp"/>
+
 1. **Dynamic Spreadsheet**:
    - Real-time updates: Changes are reflected instantly.
    - Action Line Display: Provides detailed cell information including original value, effective value, and version history.
@@ -37,7 +42,7 @@
 
 \
 \
-<img src="assets/images/Highlight dependencies and influences.png" width="40%" alt="dependencyHighlighting"/>
+<img src="assets/images/shticellGifDependncyView.gif" width="60%" alt="dependencyHighlighting"/>
 
 3. **Dependency Management**:
    - Visualize cell dependencies and influences through color-coded highlights.
@@ -45,14 +50,14 @@
 
 \
 \
-<img src="assets/images/changeBackgroundColor.png" width="40%" alt="designCustomization"/>
+<img src="assets/images/changeBackgroundColor.gif" width="60%" alt="designCustomization"/>
 
 4. **Custom Design Bar**:
    - Customize background and text colors.
    - Adjust column widths and row heights dynamically for better layout and design.
 
 <br/>
-<img src="assets/images/Screenshot 2024-10-01 185125.png" width="40%" alt="designCustomization"/>
+<img src="assets/images/dynamicAnalyes.gif" width="60%" alt="dynamicAnalysis"/>
 
 
 5. **Dynamic Analysis**:
