@@ -88,11 +88,13 @@
 1. **Advanced Expression Parsing**: 
    - Support for complex arithmetic and logical functions.
 
-2. **Data Export**:
-   - Export spreadsheet data to CSV, Excel, and other formats.
+2. **Multi-user Access Control:**:
+   - Users will have the option to grant access to their sheets to other users.
+   - This access can be designated as either view-only or edit permissions, allowing for flexible collaboration.
 
-3. **Enhanced Visualization**:
-   - Include built-in charts and graphs for data analysis.
+3. **Concurrent Editing**:
+   - If multiple users are granted editing capabilities, they will be able to edit the same sheet simultaneously.
+   - This feature will function similarly to collaborative tools like Google Sheets, ensuring real-time updates and changes made by each user are visible to others in the shared session.
 
 <br/>
 
