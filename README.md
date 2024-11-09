@@ -1,20 +1,21 @@
 <h1 align="center">
-  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWhlYWF6bHN2b3FnYzJiYnVuOGt3dTFtbHEwMjZma2EzYmdvZXg2MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26DN2iTaW5mmmJtug/giphy.gif" width="30%" alt="logo"/>
+  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWhlYWF6bHN2b3FnYzJiYnVuOGt3dTFtbHEwMjZma2EzYmdvZXg2MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26DN2iTaW5mmmJtug/giphy.gif" width="20%" alt="logo"/>
   <br/>
   Welcome to Shticell
   <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="5%" alt="waveEmoji"/>
 </h1>
 
 <h2 align="center">
-   A dynamic JavaFX-based spreadsheet application with customizable design, real-time updates, sorting, filtering, version control, and more!
+  A Multi-User Spreadsheet Server Application with Tomcat Integration
     <br/>    <br/> 
-*:new:* &nbsp; &nbsp; Now with advanced analysis and design customization features. &nbsp; &nbsp;  *:new:*
 </h2>
 
 <br/>
 
 # Table of Contents
-* [Core Functionalities](#core-functionalities)
+* [Features](#Features)
+* [Login Screen](#login-screen)
+* [Core Functionalities](#view-sheet-screen-core-functionalities)
 * [Advanced Features](#advanced-features)
 * [Upcoming Features](#upcoming-features)
 * [Installation](#installation)
@@ -24,7 +25,45 @@
 
 <br/>
 
-# :heavy_check_mark: **Core Functionalities** <a name="core-functionalities"/>
+### 📌 About the project
+
+<p align="center">
+<img src="assets/images/PROJECT_ARCHITECTURE.png" width="60%" alt="PROJECT_ARCHITECTURE"/>
+</p>
+
+# **Features** <a name="Features"/>
+   - Users can see an ordered list of all the sheets they have uploaded
+   - Multi-user collaboration via server integration.
+   - Customizable design and formatting.
+   - Sorting, filtering, and version control.
+   - Permission-based access for collaborative editing.
+    <br/>    <br/> 
+
+
+# :lock: **Login Screen** <a name="login-screen"/>
+   - Users must enter their username to log in.
+   - If the username already exists, the system notifies the user and prompts them to enter a different name.
+    <br/>    <br/>
+
+# :bulb: **Sheet Management Screen** <a name="sheet-management-screen"/>
+\
+\
+<img src="assets/images/FirstScreen-RequestPermission.gif" width="60%" alt="firstScreen_requestPermission"/>
+1. **View Uploaded Sheets**:
+   - Users can see an ordered list of all the sheets they have uploaded.
+
+2. **Permission Requests Management**:
+   - Users can view permission requests for each sheet they uploaded.
+   - For each request, the user's username, requested permission type, and the approval status are displayed.
+   - Sheet owners can approve or reject permission requests.
+
+3. **Request Permissions**:
+   - Users can select any sheet in the system and request permission from the owner.
+   - Requests can be for READER (view-only) or WRITER (editing) permissions.
+
+    <br/>    <br/> 
+
+# :heavy_check_mark: **View Sheet Screen- Core Functionalities** <a name="view-sheet-screen-core-functionalities"/>
 
 \
 \
@@ -83,36 +122,34 @@
    - Enjoy interactive animations with pop-ups and button hover effects.
 
 <br/>
-
-# :construction_worker: **Upcoming Features** <a name="upcoming-features"/>
-1. **Advanced Expression Parsing**: 
-   - Support for complex arithmetic and logical functions.
-
-2. **Multi-user Access Control:**:
-   - Users will have the option to grant access to their sheets to other users.
-   - This access can be designated as either view-only or edit permissions, allowing for flexible collaboration.
-
-3. **Concurrent Editing**:
-   - If multiple users are granted editing capabilities, they will be able to edit the same sheet simultaneously.
-   - This feature will function similarly to collaborative tools like Google Sheets, ensuring real-time updates and changes made by each user are visible to others in the shared session.
-
 <br/>
 
 # :wrench: **Installation** <a name="installation"/>
 
-1. Download the project files from the repository.
+1. **Download the Project Files**:
+   - Clone or download the project files from the repository.
 
-2. Set up the JavaFX environment in your preferred IDE (IntelliJ IDEA, Eclipse).
+2. **Set Up the JavaFX Environment**:
+   - Open the project in your preferred IDE (e.g., IntelliJ IDEA, Eclipse).
+   - Ensure all dependencies for JavaFX are installed.
 
-3. Ensure all dependencies for JavaFX are installed.
-
+3. **Set Up the Server**:
+   - Install Apache Tomcat or another servlet container.
+   - Deploy the server code by copying the WAR file to the Tomcat webapps directory or configuring deployment through your IDE.
+   - Set the context path to web-Shticell_Web.
+  
 <br/>
 
 # :arrow_forward: **Run** <a name="run"/>
 
-1. Run the `ShticellMain` class to start the application.
+1. **Run the Server**:
+   - Build the server-side code and start the Tomcat server.
+   - Verify the server is running by accessing http://localhost:8080/web-Shticell_Web.
 
-2. The user interface will load, and you can begin interacting with the spreadsheet.
+
+2. **Run the Client**:
+   - Run the JavaFX client application from your IDE..
+   - The client interacts with the server to provide spreadsheet functionalities.
 
 <br/>
 
