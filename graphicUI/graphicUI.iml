@@ -17,5 +17,13 @@
     <orderEntry type="library" name="javafx.web" level="project" />
     <orderEntry type="module" module-name="engine" />
     <orderEntry type="module" module-name="dto" />
+    <orderEntry type="library" name="annotations-13.0" level="project" />
+    <orderEntry type="library" name="kotlin-stdlib-1.4.10" level="project" />
+    <orderEntry type="library" name="okhttp-4.9.1" level="project" />
+    <orderEntry type="library" name="okio-2.8.0" level="project" />
+    <orderEntry type="library" name="kotlin-stdlib-common-1.4.10" level="project" />
+    <orderEntry type="library" name="gson-2.1-javadoc" level="project" />
+    <orderEntry type="library" name="gson-2.1-sources" level="project" />
+    <orderEntry type="library" name="gson-2.1" level="project" />
   </component>
 </module>

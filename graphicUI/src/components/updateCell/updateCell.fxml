@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane fx:id="mainContinerScrollPane" fitToHeight="true" fitToWidth="true" stylesheets="@../../util/popupWindow_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.updateCell.UpdateCellController">
+<ScrollPane fx:id="mainContinerScrollPane" fitToHeight="true" fitToWidth="true" stylesheets="@../../util/popUpWindowDesign/popupWindow_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.updateCell.UpdateCellController">
    <content>
       <FlowPane alignment="CENTER" styleClass="pane-white">
          <children>

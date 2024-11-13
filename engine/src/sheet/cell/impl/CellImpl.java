@@ -15,11 +15,13 @@ public class CellImpl implements Cell, Serializable {
     private String originalValue;
     private EffectiveValue effectiveValue;
     private int version;
+    private String updatedByUser;
     private final List<Cell> dependsOn;
     private final List<Cell> influencingOn;
 
-    public CellImpl(int row, int column, String originalValue, int version) {
+    public CellImpl(int row, int column, String originalValue, int version,String updatedByUser) {
         this.coordinate = new CoordinateImpl(row, column);
+        this.updatedByUser= updatedByUser;
         this.influencingOn = new ArrayList<>();
         this.dependsOn = new ArrayList<>();
         this.version = version;
@@ -119,6 +121,14 @@ public class CellImpl implements Cell, Serializable {
 
     public  void setCoordinate(Coordinate coordinate){
         this.coordinate=coordinate;
+    }
+
+    public String getUpdatedByUser() {
+        return updatedByUser;
+    }
+
+    public void setUpdatedByUser(String updatedByUser) {
+        this.updatedByUser = updatedByUser;
     }
 }
 

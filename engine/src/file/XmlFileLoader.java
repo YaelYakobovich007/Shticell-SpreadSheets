@@ -12,20 +12,31 @@ public class XmlFileLoader {
 
     private static final String XML_PACKAGE_NAME = "jaxb.schema";
 
-    public static STLSheet loadXmlFile(String filePath)
+//    public static STLSheet loadXmlFile(String filePath)
+//    {
+//        try {
+//            XmlValidator.valideXmlFile(filePath);
+//            InputStream inputStream = new FileInputStream(filePath);
+//            STLSheet stlSheet = deserializeFrom(inputStream);
+//            return stlSheet;
+//
+//        } catch (JAXBException e) {
+//            throw new RuntimeException("Error processing the XML file: " + e.getMessage(), e);
+//        } catch (FileNotFoundException e){
+//            throw new RuntimeException(e);
+//        }
+//    }
+
+    public static STLSheet loadXmlFile(InputStream fileInputStream)
     {
         try {
-            XmlValidator.valideXmlFile(filePath);
-            InputStream inputStream = new FileInputStream(filePath);
-            STLSheet stlSheet = deserializeFrom(inputStream);
+            STLSheet stlSheet = deserializeFrom(fileInputStream);
             return stlSheet;
-
         } catch (JAXBException e) {
             throw new RuntimeException("Error processing the XML file: " + e.getMessage(), e);
-        } catch (FileNotFoundException e){
-            throw new RuntimeException(e);
         }
     }
+
 
     private static STLSheet deserializeFrom(InputStream in) throws JAXBException {
         JAXBContext jc = JAXBContext.newInstance(XML_PACKAGE_NAME);

@@ -7,5 +7,6 @@ public interface Version  extends Serializable {
     int getVersionNumber();
     int getChangedCellsCount();
     Sheet getSheet();
+    void updateSheet(Sheet sheet);
 }
 

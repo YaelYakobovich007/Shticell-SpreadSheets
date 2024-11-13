@@ -1,9 +1,11 @@
 package components.filter;
 
-import components.app.AppController;
+import components.viewSheetMain.ViewSheetMainController;
 import components.sheet.*;
 import components.sort.RangeUtils;
 import engine.SheetDTO;
+import engine.UniqueValuesForColumnDTO;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,11 +15,16 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+import org.jetbrains.annotations.NotNull;
+import util.Constants;
 import util.PopupManager;
+import java.io.IOException;
 import java.util.*;
 
 public class FilterController {
-
     @FXML private ComboBox<String> columnComboBox;
     @FXML private TextField fromRangeTextField;
     @FXML private TextField toRangeTextField;
@@ -32,7 +39,7 @@ public class FilterController {
     private  Character currentColumn;
     private VBox[] steps;
     private Set<String> availableColumns = new HashSet<>();
-    private AppController mainController;
+    private ViewSheetMainController mainController;
     private Stage stage;
     List<String> uniqueValues;
     private ChangeListener<String> columnSelectionListener;
@@ -43,7 +50,6 @@ public class FilterController {
         setupThemeListener();
         configureColumnComboBoxListener();
     }
-
     private void initializeUIComponents() {
         steps = new VBox[]{rangeSelectionView, columnSelectionView, valueSelectionView};
         valueListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -51,12 +57,12 @@ public class FilterController {
     }
 
     private void setupThemeListener() {
-        AppController.themeProperty().addListener((obs, oldTheme, newTheme) -> updateStyleSheet(newTheme));
-        updateStyleSheet(AppController.themeProperty().get());
+        ViewSheetMainController.themeProperty().addListener((obs, oldTheme, newTheme) -> updateStyleSheet(newTheme));
+        updateStyleSheet(ViewSheetMainController.themeProperty().get());
     }
 
     private void updateStyleSheet(String newStyle) {
-        String styleSheet = getClass().getResource("/util/popupWindow_" + newStyle + ".css").toExternalForm();
+        String styleSheet = getClass().getResource("/util/popUpWindowDesign/popupWindow_" + newStyle + ".css").toExternalForm();
         mainContinerScrollPane.getStylesheets().clear();
         mainContinerScrollPane.getStylesheets().add(styleSheet);
     }
@@ -78,14 +84,32 @@ public class FilterController {
     @FXML
     void handleFinishButton(ActionEvent event) {
         collectSelectedValues();
-        stage.close();
-        SheetDTO filterSheet= mainController.filterSheet(fromRangeTextField.getText(),toRangeTextField.getText(),selectedColumns2UniqueValues);
-        displayFilteredSheet(filterSheet);
+        mainController.filterSheet(fromRangeTextField.getText(), toRangeTextField.getText(), selectedColumns2UniqueValues, new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                Platform.runLater(() -> PopupManager.showErrorPopup("Failed to filter sheet: " + e.getMessage()));
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String responseBody = response.body() != null ? response.body().string() : "";
+                    SheetDTO filteredSheet = Constants.GSON_INSTANCE.fromJson(responseBody, SheetDTO.class);
+                    Platform.runLater(() -> {
+                        stage.close();
+                        displayFilteredSheet(filteredSheet);
+                    });
+                } else {
+                    String errorMessage = response.body() != null ? response.body().string() : "Unknown error";
+                    Platform.runLater(() -> PopupManager.showErrorPopup("Failed to filter sheet: " + errorMessage));
+                }
+            }
+        });
     }
 
     @FXML
     private void handleNextButtonToSelectValueAction(ActionEvent event) {
-        if (columnComboBox.getSelectionModel().getSelectedItem()!=null) {
+        if (columnComboBox.getSelectionModel().getSelectedItem() != null) {
             loadUniqueValuesForSelectedColumn();
         } else {
             PopupManager.showErrorPopup("You must select a column first before proceeding to the next step");
@@ -93,12 +117,33 @@ public class FilterController {
     }
 
     private void loadUniqueValuesForSelectedColumn() {
-        uniqueValues = getUniqueValuesForColumn();
-        valueListView.getItems().setAll(uniqueValues);
-        showStep(2);
+        mainController.getUniqueValuesForColumn(currentColumn, fromRangeTextField.getText(), toRangeTextField.getText(), new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                Platform.runLater(() -> PopupManager.showErrorPopup("Failed to get unique values: " + e.getMessage()));
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                try (response) {
+                    if (response.isSuccessful()) {
+                        String responseBody = response.body() != null ? response.body().string() : "";
+                        UniqueValuesForColumnDTO uniqueValuesDTO = Constants.GSON_INSTANCE.fromJson(responseBody, UniqueValuesForColumnDTO.class);
+                        uniqueValues = new ArrayList<>(uniqueValuesDTO.getUniqueValues());
+                        Platform.runLater(() -> {
+                            valueListView.getItems().setAll(uniqueValues);
+                            showStep(2);
+                        });
+                    } else {
+                        String errorMessage = response.body() != null ? response.body().string() : "Unknown error";
+                        Platform.runLater(() -> PopupManager.showErrorPopup("Failed to get unique values: " + errorMessage));
+                    }
+                }
+            }
+        });
     }
 
-    public void setMainController(AppController mainController) {
+    public void setMainController(ViewSheetMainController mainController) {
         this.mainController = mainController;
     }
 
@@ -134,24 +179,43 @@ public class FilterController {
     }
 
 
-    @FXML void handleSelectRangeAction(ActionEvent event) {
+    @FXML
+    void handleSelectRangeAction(ActionEvent event) {
         String fromRange = fromRangeTextField.getText();
         String toRange = toRangeTextField.getText();
 
         if (fromRange.isEmpty() || toRange.isEmpty()) {
             PopupManager.showErrorPopup("All fields are required.");
         } else {
-            try {
-                if (mainController.isValidBoundaries(fromRange, toRange)){
-                    populateAvailableColumns(fromRange,toRange);
-                    columnComboBox.getItems().addAll(availableColumns);
-                    columnComboBox.getSelectionModel().selectedItemProperty().addListener(columnSelectionListener);
-                    updateAddButtonState();
-                    showStep(1);
+            mainController.isValidBoundaries(fromRange, toRange, new Callback() {
+                @Override
+                public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                    Platform.runLater(() -> PopupManager.showErrorPopup("Error: " + e.getMessage()));
                 }
-            } catch(Exception e) {
-                PopupManager.showErrorPopup(e.getMessage());
-            }
+
+                @Override
+                public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                    try (response) {
+                        if (response.isSuccessful()) {
+                            String responseBody = response.body() != null ? response.body().string() : "";
+                            boolean isValid = Constants.GSON_INSTANCE.fromJson(responseBody, Boolean.class);
+                            Platform.runLater(() -> {
+                                if (isValid) {
+                                    populateAvailableColumns(fromRange, toRange);
+                                    columnComboBox.getItems().addAll(availableColumns);
+                                    columnComboBox.getSelectionModel().selectedItemProperty().addListener(columnSelectionListener);
+                                    updateAddButtonState();
+                                    showStep(1);
+                                } else {
+                                    PopupManager.showErrorPopup("Invalid boundaries.");
+                                }
+                            });
+                        } else {
+                            Platform.runLater(() -> PopupManager.showErrorPopup("Error: Invalid boundaries."));
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -160,12 +224,6 @@ public class FilterController {
         availableColumns= RangeUtils.getColumnsFromRange(fromRange,toRange);
     }
 
-    public List<String> getUniqueValuesForColumn() {
-        List<String> uniqueValues = new ArrayList<>();
-
-        mainController.getUniqueValuesForColumn(currentColumn, fromRangeTextField.getText(),toRangeTextField.getText()).forEach(effectiveValue -> uniqueValues.add(FormattedValuePrinter.formatValue(effectiveValue)));
-        return uniqueValues;
-    }
 
     private Character getCurrentColumn(String selectedColumn) {
         Character column= null;
@@ -213,6 +271,4 @@ public class FilterController {
         newStage.setScene(new Scene(scrollPane));
         newStage.show();
     }
-
-
 }

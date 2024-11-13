@@ -1,7 +1,6 @@
 package range;
 
 import sheet.api.Layout;
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +34,6 @@ public class RangesManager implements Serializable {
 
     public  void deleteRange(String name){
         if(name2Range.containsKey(name)== false) {
-            //fix thee measage to be more good
             throw new RuntimeException("Cannot delete range '" + name + "' because no such range exists.");
         }
         Integer count = rangesInUse.getOrDefault(name, 0);
@@ -54,8 +52,6 @@ public class RangesManager implements Serializable {
     public void resetAllRangeInUse(){
         rangesInUse.clear();
     }
-
-
 
     public Map<String,Range> getAllRanges(){
         return name2Range;

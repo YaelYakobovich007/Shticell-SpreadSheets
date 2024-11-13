@@ -1,7 +1,7 @@
 package ui;
 
 public class DisplayCellyRequestDTO {
-    private  final String id;
+    private final String id;
 
     public DisplayCellyRequestDTO(String id){
         this.id = id;
@@ -10,4 +10,6 @@ public class DisplayCellyRequestDTO {
     public String getId(){
         return id;
     }
+
+
 }

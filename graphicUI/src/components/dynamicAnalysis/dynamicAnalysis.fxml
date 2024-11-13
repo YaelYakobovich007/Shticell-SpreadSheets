@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-<ScrollPane fx:id="mainContinerScrollPane" fitToHeight="true" fitToWidth="true" stylesheets="@../../util/popupWindow_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.dynamicAnalysis.DynamicAnalysisController">
+<ScrollPane fx:id="mainContinerScrollPane" fitToHeight="true" fitToWidth="true" stylesheets="@../../util/popUpWindowDesign/popupWindow_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.dynamicAnalysis.DynamicAnalysisController">
     <content>
         <FlowPane alignment="CENTER" styleClass="pane-white">
             <children>
@@ -49,8 +49,9 @@
                             <TextField fx:id="stepSizeTextField" disable="true" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" styleClass="text-field-custom" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
                             <!-- Buttons (Start Analysis and Cancel) -->
-                            <HBox alignment="CENTER" prefHeight="40.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                            <HBox alignment="BOTTOM_RIGHT" prefHeight="56.0" prefWidth="343.0" spacing="20.0" GridPane.columnSpan="3" GridPane.rowIndex="4">
                                 <children>
+                           <Button fx:id="addAnotherCellButton" maxHeight="35.0" minHeight="35.0" mnemonicParsing="false" onAction="#handleAddAnotherCellAction" prefHeight="35.0" styleClass="button-primary" text="Add Another Cell" />
                                     <Button maxHeight="35.0" maxWidth="110.0" minHeight="35.0" minWidth="110.0" onAction="#handleCancelAction" prefHeight="35.0" prefWidth="110.0" styleClass="button-secondary" text="Cancel" />
                                     <Button fx:id="startAnalysisButton" disable="true" maxHeight="35.0" maxWidth="110.0" minHeight="35.0" minWidth="110.0" onAction="#startAnalysis" prefHeight="35.0" prefWidth="110.0" styleClass="button-primary" text="Start Analysis" />
                                 </children>

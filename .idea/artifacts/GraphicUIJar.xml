@@ -20,6 +20,14 @@
       <element id="library" level="project" name="jakarta.activation-api" />
       <element id="library" level="project" name="angus-activation" />
       <element id="module-output" name="dto" />
+      <element id="library" level="project" name="okio-2.8.0" />
+      <element id="library" level="project" name="okhttp-4.9.1" />
+      <element id="library" level="project" name="kotlin-stdlib-common-1.4.10" />
+      <element id="library" level="project" name="kotlin-stdlib-1.4.10" />
+      <element id="library" level="project" name="annotations-13.0" />
+      <element id="library" level="project" name="gson-2.1" />
+      <element id="library" level="project" name="gson-2.1-javadoc" />
+      <element id="library" level="project" name="gson-2.1-sources" />
     </root>
   </artifact>
 </component>

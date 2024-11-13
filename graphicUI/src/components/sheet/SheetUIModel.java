@@ -9,13 +9,17 @@ import java.util.Map;
 
 public class SheetUIModel {
     private final Map<String, StringProperty> cellProperties = new HashMap<>();
-    private ObjectProperty<Label> selectedCell;
+    private final ObjectProperty<Label> selectedCell;
+    private final Map<String, Boolean> colorFillStatus = new HashMap<>();
+
 
     public SheetUIModel(Map<String, Label> cellMap,ObjectProperty<Label> selectedCell){
         for (Map.Entry<String, Label> entry : cellMap.entrySet()) {
             StringProperty cellProperty = new SimpleStringProperty();
             entry.getValue().textProperty().bind(cellProperty);
             cellProperties.put(entry.getKey(), cellProperty);
+            colorFillStatus.put(entry.getKey(), true);
+
         }
         this.selectedCell = selectedCell;
 
@@ -32,4 +36,11 @@ public class SheetUIModel {
         return selectedCell;
     }
 
+    public void setColorFillStatus(String cellId, boolean status) {
+        colorFillStatus.put(cellId, status);
+    }
+
+    public boolean getColorFillStatus(String cellId) {
+        return colorFillStatus.getOrDefault(cellId, true);
+    }
 }

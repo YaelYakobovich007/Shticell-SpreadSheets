@@ -7,14 +7,15 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.layout.*;
 import javafx.scene.control.Label;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import sheet.coordinate.Coordinate;
+import util.ColorUtil;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
 public class sheetControllerImpl implements SheetController {
     private GridPane masterGridPane;
     private final Map<String, Label> cellMap = new HashMap<>();
@@ -31,46 +32,38 @@ public class sheetControllerImpl implements SheetController {
         setUpSelectedCellListener();
         uiModel = new SheetUIModel(cellMap, selectedCell);
 
+        Map<String, Color> backgroundColors = getBackgroundColorsAsColors(sheetDTO);
+        Map<String, Color> textColors = getTextColorsAsColors(sheetDTO);
+
         sheetDTO.getActiveCells().forEach((coordinate, cellDTO) -> {
-            String cellId = coordinate.toString();
+            String cellId = coordinate;
             Label cellLabel = cellMap.get(cellId);
-
-            uiModel.updateCellContent(cellId, FormattedValuePrinter.formatValue(cellDTO.getEffectiveValue()));
-
-            Color backgroundColor = sheetDTO.getBackgroundColorsAsColors().getOrDefault(coordinate, Color.WHITE);
-            if (!backgroundColor.equals(Color.WHITE)) {
-                cellLabel.getStyleClass().remove("background-cell");
-                BackgroundFill backgroundFill = new BackgroundFill(backgroundColor, CornerRadii.EMPTY, Insets.EMPTY);
-                cellLabel.setBackground(new Background(backgroundFill));
-            }
-            Color textColor = sheetDTO.getTextColorsAsColors().getOrDefault(coordinate, Color.BLACK);
-            cellLabel.setTextFill(textColor);
-
-        });
-
-        sheetDTO.getBackgroundColorsAsColors().forEach((coordinate, color) -> {
-            String cellId = coordinate.toString();
-            Label cellLabel = cellMap.get(cellId);
-            if (cellLabel != null) {
-                applyBackgroundColor(cellLabel, color);
-            }
-        });
-
-        sheetDTO.getTextColorsAsColors().forEach((coordinate, color) -> {
-            String cellId = coordinate.toString();
-            Label cellLabel = cellMap.get(cellId);
-            if (cellLabel != null) {
-                applyTextColor(cellLabel, color);
-            }
+            uiModel.updateCellContent(cellId, cellDTO.getEffectiveValue());
+            Color backgroundColor = backgroundColors.getOrDefault(coordinate, Color.WHITE);
+            applyBackgroundColor(cellLabel, backgroundColor);
+            Color textColor = textColors.getOrDefault(coordinate, Color.BLACK);
+            applyTextColor(cellLabel, textColor);
         });
         return masterGridPane;
     }
 
 
+    public Map<String, Color> getBackgroundColorsAsColors(SheetDTO sheetDTO) {
+        Map<String, Color> colors = new HashMap<>();
+        sheetDTO.getBackgroundColors().forEach((coordinate, colorString) -> colors.put(coordinate, ColorUtil.hexToColor(colorString)));
+        return colors;
+    }
+
+    public Map<String, Color> getTextColorsAsColors(SheetDTO sheetDTO) {
+        Map<String, Color> colors = new HashMap<>();
+        sheetDTO.getTextColors().forEach((coordinate, colorString) -> colors.put(coordinate, ColorUtil.hexToColor(colorString)));
+        return colors;
+    }
+
     public void updateAllCellContent(SheetDTO sheetDTO){
         sheetDTO.getActiveCells().forEach((coordinate, cellDTO) -> {
-            String cellId = coordinate.toString();
-            uiModel.updateCellContent(cellId, FormattedValuePrinter.formatValue(cellDTO.getEffectiveValue()));
+            String cellId = coordinate;
+            uiModel.updateCellContent(cellId, cellDTO.getEffectiveValue());
         });
     }
 
@@ -106,8 +99,8 @@ public class sheetControllerImpl implements SheetController {
     }
 
     public void highlightDependsOnCells(CellDTO cellDTO) {
-        cellDTO.getDependentSources().forEach(dependsOnCell -> {
-            String dependsOnCellId = dependsOnCell.getCoordinate().toString();
+        cellDTO.getDependentSources().forEach(dependsOnCoordinate -> {
+            String dependsOnCellId = dependsOnCoordinate;
             Label dependsOnLabel = cellMap.get(dependsOnCellId);
             if (dependsOnLabel != null) {
                 dependsOnLabel.getStyleClass().add("depends-on-cell");
@@ -117,8 +110,8 @@ public class sheetControllerImpl implements SheetController {
     }
 
     public void highlightInfluenceOnCells(CellDTO cellDTO) {
-        cellDTO.getInfluencedCells().forEach(influencedCell -> {
-            String influencedCellId = influencedCell.getCoordinate().toString();
+        cellDTO.getInfluencedCells().forEach(influencedCoordinate -> {
+            String influencedCellId = influencedCoordinate;
             Label influencedLabel = cellMap.get(influencedCellId);
             if (influencedLabel != null) {
                 influencedLabel.getStyleClass().add("influence-on-cell");
@@ -205,25 +198,34 @@ public class sheetControllerImpl implements SheetController {
     public void showSelectRange(RangeDTO selectedRange){
         resetSelectedRange();
         this.selectedRange=selectedRange;
-        Set<Coordinate> range= selectedRange.getCoordinateInRange();
-        for(Coordinate coordinate : range){
-            Label cellInRange= cellMap.get(coordinate.toString());
+        Set<String> range= selectedRange.getCoordinateInRange();
+        for(String coordinate : range){
+            Label cellInRange= cellMap.get(coordinate);
             cellInRange.getStyleClass().add("cell-in-range");
         }
     }
 
     public void resetSelectedRange() {
         if (selectedRange != null) {
-            for (Coordinate coordinate : selectedRange.getCoordinateInRange()) {
-                Label cellInRange = cellMap.get(coordinate.toString());
+            for (String coordinate : selectedRange.getCoordinateInRange()) {
+                Label cellInRange = cellMap.get(coordinate);
                 cellInRange.getStyleClass().remove("cell-in-range");
             }
             selectedRange = null;
         }
     }
 
+
+
     private void applyBackgroundColor(Label label, Color color) {
-        if (!color.equals(Color.WHITE)) {
+        if (color.equals(Color.WHITE)) {
+            if (!label.getStyleClass().contains("background-cell")) {
+                label.getStyleClass().add("background-cell");
+            }
+
+            label.setBackground(null);
+
+        } else {
             label.getStyleClass().remove("background-cell");
             BackgroundFill backgroundFill = new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY);
             label.setBackground(new Background(backgroundFill));
@@ -231,7 +233,6 @@ public class sheetControllerImpl implements SheetController {
     }
 
     private void applyTextColor(Label label, Color color) {
-        label.getStyleClass().remove("background-cell");
         label.setTextFill(color);
     }
 }

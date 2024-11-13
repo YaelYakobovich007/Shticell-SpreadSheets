@@ -1,5 +1,7 @@
 Manifest-Version: 1.0
 Main-Class: mainStart.Main
-Class-Path: lib/EngineJar.jar lib/DTOJar.jar jaxb/angus-activation.jar jaxb/jakarta.activation-api.jar jaxb/jakarta.xml.bind-api.jar jaxb/jaxb-core.jar jaxb/jaxb-impl.jar jaxb/jaxb-jxc.jar jaxb/jaxb-xjc.jar
+Class-Path: lib/EngineJar.jar lib/DTOJar.jar jaxb/angus-activation.jar jaxb/jakarta.activation-api.jar jaxb/jakarta.xml.bind-api.jar jaxb/jaxb-core.jar jaxb/jaxb-impl.jar jaxb/jaxb-jxc.jar jaxb/jaxb-xjc.jar Okhttp/kotlin-stdlib-1.4.10.jar Okhttp/annotations-13.0.jar Okhttp/kotlin-stdlib-common-1.4.10.jar Okhttp/okhttp-4.9.1.jar Okhttp/okio-2.8.0.jar Gson/gson-2.1.jar Gson/gson-2.1-javadoc.jar Gson/gson-2.1-sources.jar
+
+
 
 

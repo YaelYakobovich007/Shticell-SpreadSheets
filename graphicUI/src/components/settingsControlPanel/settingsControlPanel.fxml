@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox alignment="CENTER" prefHeight="94.0" prefWidth="236.0" spacing="15.0" stylesheets="@../../util/leftMenu_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.settingsControlPanel.SettingsControlPanelController">
+<HBox alignment="CENTER" prefHeight="94.0" prefWidth="236.0" spacing="15.0" stylesheets="@../../util/leftMenuDesign/leftMenu_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.settingsControlPanel.SettingsControlPanelController">
    <children>
       <VBox alignment="CENTER" prefHeight="94.0" prefWidth="126.0" spacing="5.0">
          <children>

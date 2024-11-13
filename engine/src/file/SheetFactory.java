@@ -16,12 +16,13 @@ import java.util.List;
 
 
 public class SheetFactory {
-    public static Sheet createSheet(STLSheet stlSheet) {
+    public static Sheet createSheet(STLSheet stlSheet,String ownerName) {
         Layout layout = createLayout(stlSheet);
         RangesManager ranges= createRangesManager(stlSheet.getSTLRanges(),layout);
-        Sheet sheet = new SheetImpl(stlSheet.getName(), layout, ranges);
+        Sheet sheet = new SheetImpl(stlSheet.getName(),ownerName, layout, ranges);
 
         ExpressionFactory.setSheet(sheet);
+
         PopulateActiveCellsMap(stlSheet, sheet);
 
         return sheet;

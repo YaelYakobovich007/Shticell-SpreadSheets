@@ -223,7 +223,7 @@ it.  And you must show them these terms so they know their rights.
 
   We protect your rights with a two-step method: (1) we copyright the
 library, and (2) we offer you this license, which gives you legal
-permission to copy, distribute and/or modify the library.
+sort.permission to copy, distribute and/or modify the library.
 
   To protect each distributor, we want to make it very clear that
 there is no warranty for the free library.  Also, if the library is
@@ -270,9 +270,9 @@ library does the same job as widely used non-free libraries.  In this
 case, there is little to gain by limiting the free library to free
 software only, so we use the Lesser General Public License.
 
-  In other cases, permission to use a particular library in non-free
+  In other cases, sort.permission to use a particular library in non-free
 programs enables a greater number of people to use a large body of
-free software.  For example, permission to use the GNU C Library in
+free software.  For example, sort.permission to use the GNU C Library in
 non-free programs enables many more people to use the whole GNU
 operating system, as well as its variant, the GNU/Linux operating
 system.
@@ -531,7 +531,7 @@ or rights, from you under this License will not have their licenses
 terminated so long as such parties remain in full compliance.
 
   9. You are not required to accept this License, since you have not
-signed it.  However, nothing else grants you permission to modify or
+signed it.  However, nothing else grants you sort.permission to modify or
 distribute the Library or its derivative works.  These actions are
 prohibited by law if you do not accept this License.  Therefore, by
 modifying or distributing the Library (or any work based on the
@@ -601,7 +601,7 @@ the Free Software Foundation.
 
   14. If you wish to incorporate parts of the Library into other free
 programs whose distribution conditions are incompatible with these,
-write to the author to ask for permission.  For software which is
+write to the author to ask for sort.permission.  For software which is
 copyrighted by the Free Software Foundation, write to the Free
 Software Foundation; we sometimes make exceptions for this.  Our
 decision will be guided by the two goals of preserving the free status
@@ -1216,7 +1216,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
    the terms of any separate license agreement you may have executed
    with Licensor regarding such Contributions.
 
-6. Trademarks. This License does not grant permission to use the trade
+6. Trademarks. This License does not grant sort.permission to use the trade
    names, trademarks, service marks, or product names of the Licensor,
    except as required for reasonable and customary use in describing the
    origin of the Work and reproducing the content of the NOTICE file.
@@ -1301,7 +1301,7 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
+The above copyright notice and this sort.permission notice shall be included in
 all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -1354,7 +1354,7 @@ Copyright (c) 2008, Damien Miller <djm@openbsd.org>
 
 Permission to use, copy, modify, and distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
+copyright notice and this sort.permission notice appear in all copies.
 
 THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
 WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
@@ -1378,7 +1378,7 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is fur-
 nished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
+The above copyright notice and this sort.permission notice shall be included in
 all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -1402,7 +1402,7 @@ Copyright (C) 2017 Apple Inc. All rights reserved.
 
 Permission to use, copy, modify, and distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
+copyright notice and this sort.permission notice appear in all copies.
 
 THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
 WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
@@ -1428,7 +1428,7 @@ the Software, and to permit persons to whom the Software
 is furnished to do so, subject to the following
 conditions:
 
-The above copyright notice and this permission notice
+The above copyright notice and this sort.permission notice
 shall be included in all copies or substantial portions
 of the Software.
 
@@ -1456,7 +1456,7 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
+The above copyright notice and this sort.permission notice shall be included in all
 copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -1513,9 +1513,9 @@ without restriction, including without limitation the rights to use,
 copy, modify, merge, publish, distribute, and/or sell copies of
 the Data Files or Software, and to permit persons to whom the Data Files
 or Software are furnished to do so, provided that either
-(a) this copyright and permission notice appear with all copies
+(a) this copyright and sort.permission notice appear with all copies
 of the Data Files or Software, or
-(b) this copyright and permission notice appear in associated
+(b) this copyright and sort.permission notice appear in associated
 Documentation.
 
 THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF
@@ -4606,7 +4606,7 @@ in the documentation and/or other materials provided with the
 distribution.
     * Neither the name of Google Inc. nor the names of its
 contributors may be used to endorse or promo te products derived from
-this software without specific prior written permission.
+this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -5457,7 +5457,7 @@ are met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Apple Inc. ("Apple") nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -5488,7 +5488,7 @@ are met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Apple, Inc. ("Apple") nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -5520,7 +5520,7 @@ in the documentation and/or other materials provided with the
 distribution.
    # Neither the name of Google Inc. nor the names of its
 contributors may be used to endorse or promote products derived from
-this software without specific prior written permission.
+this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -5600,7 +5600,7 @@ so, subject to the following conditions:
     * Neither the names of the LLVM Team, University of Illinois at
       Urbana-Champaign, nor the names of its contributors may be used to
       endorse or promote products derived from this Software without specific
-      prior written permission.
+      prior written sort.permission.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
@@ -5700,7 +5700,7 @@ in the documentation and/or other materials provided with the
 distribution.
     * Neither the name of Google Inc. nor the names of its
 contributors may be used to endorse or promote products derived from
-this software without specific prior written permission.
+this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -5733,7 +5733,7 @@ in the documentation and/or other materials provided with the
 distribution.
     * Neither the name of Microsoft Corporation nor the names of its
 contributors may be used to endorse or promote products derived from
-this software without specific prior written permission.
+this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -5768,7 +5768,7 @@ met:
       with the distribution.
     * Neither the name of Google Inc. nor the names of its
       contributors may be used to endorse or promote products derived
-      from this software without specific prior written permission.
+      from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -5800,7 +5800,7 @@ are met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Apple Inc. ("Apple") nor the names of its
     contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -5837,7 +5837,7 @@ are required to be met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Canon Inc. nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY CANON INC. AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -5870,7 +5870,7 @@ are required to be met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Apple Inc. nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY APPLE INC. AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -5909,7 +5909,7 @@ are met:
    distribution.
 3. Neither the name of Ericsson nor the names of its contributors
    may be used to endorse or promote products derived from this
-   software without specific prior written permission.
+   software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -5948,7 +5948,7 @@ are met:
    distribution.
 3. Neither the name of Google Inc. nor the names of its contributors
    may be used to endorse or promote products derived from this
-   software without specific prior written permission.
+   software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -5989,7 +5989,7 @@ in the documentation and/or other materials provided with the
 distribution.
    * Neither the name of Google Inc. nor the names of its
 contributors may be used to endorse or promote products derived from
-this software without specific prior written permission.
+this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -6021,7 +6021,7 @@ are met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Apple Inc. ("Apple") nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -6052,7 +6052,7 @@ Transaction
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Apple Inc. ("Apple") nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -6083,7 +6083,7 @@ are met:
    documentation and/or other materials provided with the distribution.
 3. Neither the name of Google Inc. nor the names of its
    contributors may be used to endorse or promote products derived from
-   this software without specific prior written permission.
+   this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY APPLE INC. ``AS IS'' AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -6115,7 +6115,7 @@ are met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Canon Inc. nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 THIS SOFTWARE IS PROVIDED BY CANON INC. AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -6146,7 +6146,7 @@ met:
    the documentation and/or other materials provided with the distribution.
 3. Neither the name of Motorola Mobility Inc. nor the names of its
    contributors may be used to endorse or promote products derived from this
-   software without specific prior written permission.
+   software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -6178,7 +6178,7 @@ are met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Apple Inc. ("Apple") nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY GOOGLE AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -6207,7 +6207,7 @@ met:
 notice, this list of conditions and the following disclaimer.
     * Neither the name of Google Inc. nor the names of its
 contributors may be used to endorse or promote products derived from
-this software without specific prior written permission.
+this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -6239,7 +6239,7 @@ met:
       with the distribution.
     * Neither the name of Code Aurora Forum, Inc. nor the names of its
       contributors may be used to endorse or promote products derived
-      from this software without specific prior written permission.
+      from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
 WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -6273,7 +6273,7 @@ in the documentation and/or other materials provided with the
 distribution.
    * Neither the name of Google LLC nor the names of its
 contributors may be used to endorse or promote products derived from
-this software without specific prior written permission.
+this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -6305,7 +6305,7 @@ are met:
    documentation and/or other materials provided with the distribution.
 3. Neither the name of Opera Software ASA nor the names of its
    contributors may be used to endorse or promote products derived
-   from this software without specific prior written permission.
+   from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -6339,7 +6339,7 @@ in the documentation and/or other materials provided with the
 distribution.
     * Neither the name of Canon Inc. nor the names of its
 contributors may be used to endorse or promote products derived from
-this software without specific prior written permission.
+this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -6371,7 +6371,7 @@ are met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Adam Barth. ("Adam Barth") nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -6402,7 +6402,7 @@ are met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Google, Inc. nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -6434,7 +6434,7 @@ notice, this list of conditions and the following disclaimer.
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Apple Inc. ("Apple") nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -6467,7 +6467,7 @@ are met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Apple Inc. ("Apple") nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -6499,7 +6499,7 @@ are met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Google, Inc. ("Google") nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY GOOGLE AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -6531,7 +6531,7 @@ are met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Googl, Inc. ("Google") nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY GOOGLE AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -6567,7 +6567,7 @@ are met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Apple Inc. ("Apple") nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -6598,7 +6598,7 @@ are met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Apple Inc. ("Apple") nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -6629,7 +6629,7 @@ are met:
    documentation and/or other materials provided with the distribution.
 3.  Neither the name of Apple Inc. ("Apple") nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY APPLE INC. ``AS IS'' AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -6664,7 +6664,7 @@ are met:
     documentation and/or other materials provided with the distribution.
 3.  Neither the name of Apple Inc. ("Apple") nor the names of
     its contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
+    from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -6698,7 +6698,7 @@ modification, are permitted provided that the following conditions are met:
 
 3. Neither the name of the copyright holder nor the names of its
    contributors may be used to endorse or promote products derived from
-   this software without specific prior written permission.
+   this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -6735,7 +6735,7 @@ are met:
 
 4. The name of the author may not be used to endorse or promote
    products derived from this software without specific prior written
-   permission.
+   sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS
 OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -6778,7 +6778,7 @@ are permitted provided that the following conditions are met:
 
   * Neither the name of the copyright holders nor the names of its contributors
     may be used to endorse or promote products derived from this software without
-    specific prior written permission.
+    specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
@@ -6807,7 +6807,7 @@ modification, are permitted provided that the following conditions are met:
   and/or other materials provided with the distribution.
 * Neither the name of Intel Corporation nor the names of its contributors may
   be used to endorse or promote products derived from this software without
-  specific prior written permission.
+  specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -6844,7 +6844,7 @@ modification, are permitted provided that the following conditions are met:
   and/or other materials provided with the distribution.
 * Neither the name of Intel Corporation nor the names of its contributors may
   be used to endorse or promote products derived from this software without
-  specific prior written permission.
+  specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -6882,7 +6882,7 @@ modification, are permitted provided that the following conditions are met:
   and/or other materials provided with the distribution.
 * Neither the name of Intel Corporation nor the names of its contributors may
   be used to endorse or promote products derived from this software without
-  specific prior written permission.
+  specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -6922,7 +6922,7 @@ are met:
    notice, this list of conditions and the following disclaimer in the
    documentation and/or other materials provided with the distribution.
 3. The name of the author may not be used to endorse or promote products
-   derived from this software without specific prior written permission.
+   derived from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
 IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
@@ -6952,7 +6952,7 @@ are met:
    documentation and/or other materials provided with the distribution.
 3. Neither the name of the University nor the names of its contributors
    may be used to endorse or promote products derived from this software
-   without specific prior written permission.
+   without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE

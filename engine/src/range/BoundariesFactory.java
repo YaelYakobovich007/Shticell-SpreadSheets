@@ -3,7 +3,6 @@ package range;
 import sheet.api.Layout;
 import sheet.coordinate.Coordinate;
 import sheet.coordinate.CoordinateFactory;
-
 import java.io.Serializable;
 
 public class BoundariesFactory implements Serializable {
@@ -19,7 +18,6 @@ public class BoundariesFactory implements Serializable {
         else{
             throw new RuntimeException("Invalid boundaries");
         }
-
     }
 
     private static boolean isValidBoundaries(Coordinate from, Coordinate to){

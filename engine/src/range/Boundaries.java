@@ -1,9 +1,7 @@
 package range;
 
 import sheet.coordinate.Coordinate;
-
 import java.io.Serializable;
-
 
 public class Boundaries implements Serializable {
     private Coordinate to;
@@ -21,8 +19,4 @@ public class Boundaries implements Serializable {
     public Coordinate getFrom(){
         return from;
     }
-
-
-
-
 }

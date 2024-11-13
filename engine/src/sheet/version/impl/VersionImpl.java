@@ -5,7 +5,7 @@ import sheet.version.api.Version;
 
 public class VersionImpl implements Version {
     private final int versionNumber;
-    private final Sheet sheet;
+    private  Sheet sheet;
     private final int changedCellsCount;
 
     public VersionImpl(int versionNumber, int changedCellsCount, Sheet sheet){
@@ -27,5 +27,10 @@ public class VersionImpl implements Version {
     @Override
     public Sheet getSheet() {
         return sheet;
+    }
+
+    @Override
+    public  void updateSheet(Sheet sheet){
+        this.sheet = sheet;
     }
 }

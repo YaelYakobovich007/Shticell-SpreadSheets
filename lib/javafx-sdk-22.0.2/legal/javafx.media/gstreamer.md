@@ -166,7 +166,7 @@ it.  And you must show them these terms so they know their rights.
 
   We protect your rights with a two-step method: (1) we copyright the
 library, and (2) we offer you this license, which gives you legal
-permission to copy, distribute and/or modify the library.
+sort.permission to copy, distribute and/or modify the library.
 
   To protect each distributor, we want to make it very clear that
 there is no warranty for the free library.  Also, if the library is
@@ -213,9 +213,9 @@ library does the same job as widely used non-free libraries.  In this
 case, there is little to gain by limiting the free library to free
 software only, so we use the Lesser General Public License.
 
-  In other cases, permission to use a particular library in non-free
+  In other cases, sort.permission to use a particular library in non-free
 programs enables a greater number of people to use a large body of
-free software.  For example, permission to use the GNU C Library in
+free software.  For example, sort.permission to use the GNU C Library in
 non-free programs enables many more people to use the whole GNU
 operating system, as well as its variant, the GNU/Linux operating
 system.
@@ -474,7 +474,7 @@ or rights, from you under this License will not have their licenses
 terminated so long as such parties remain in full compliance.
 
   9. You are not required to accept this License, since you have not
-signed it.  However, nothing else grants you permission to modify or
+signed it.  However, nothing else grants you sort.permission to modify or
 distribute the Library or its derivative works.  These actions are
 prohibited by law if you do not accept this License.  Therefore, by
 modifying or distributing the Library (or any work based on the
@@ -544,7 +544,7 @@ the Free Software Foundation.
 
   14. If you wish to incorporate parts of the Library into other free
 programs whose distribution conditions are incompatible with these,
-write to the author to ask for permission.  For software which is
+write to the author to ask for sort.permission.  For software which is
 copyrighted by the Free Software Foundation, write to the Free
 Software Foundation; we sometimes make exceptions for this.  Our
 decision will be guided by the two goals of preserving the free status
@@ -693,7 +693,7 @@ and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its contributors
 may be used to endorse or promote products derived from this software without
-specific prior written permission.
+specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -742,7 +742,7 @@ are met:
    documentation and/or other materials provided with the distribution.
 3. Neither the name of the University nor the names of its contributors
    may be used to endorse or promote products derived from this software
-   without specific prior written permission.
+   without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE

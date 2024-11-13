@@ -1,22 +1,16 @@
 package components.sheet;
 
-import engine.CellDTO;
 import engine.SheetDTO;
-import javafx.application.Platform;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
-import parse.ExpressionFactory;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class SheetGridBuilder {
-    private  GridPane gridPane;
+    private  final GridPane gridPane;
     private final Map<String, Label> cellMap;
 
     public SheetGridBuilder() {
@@ -39,8 +33,6 @@ public class SheetGridBuilder {
 
         return gridPane;
     }
-
-
 
     private void setupGridPane(){
         gridPane.setHgap(15.0);
@@ -65,8 +57,6 @@ public class SheetGridBuilder {
             }
         }
     }
-
-
 
     private Label createCellLabel(){
         Label cellLabel = new Label();

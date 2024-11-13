@@ -1,33 +1,30 @@
 package engine;
 
-import range.Boundaries;
 import range.Range;
-import sheet.coordinate.Coordinate;
-
 import java.util.HashSet;
 import java.util.Set;
 
 public class RangeDTO {
-
-    public final Boundaries boundaries;
+    public final BoundariesDTO boundaries;
     private final String name;
-    private final Set<Coordinate> coordinateInRange;
+    private final Set<String> coordinateInRange;
 
     public RangeDTO(Range range) {
-        boundaries= range.getBoundaries();
+        boundaries = new BoundariesDTO(range.getBoundaries());
         name = range.getName();
-        coordinateInRange= range.getCoordinateInRange();
-
+        coordinateInRange = new HashSet<>();
+        range.getCoordinateInRange().forEach(coordinate -> coordinateInRange.add(coordinate.toString()));
     }
+
     public String getName() {
         return name;
     }
-    public Boundaries getBoundaries() {
+
+    public BoundariesDTO getBoundaries() {
         return boundaries;
     }
-    public Set<Coordinate> getCoordinateInRange() {
+
+    public Set<String> getCoordinateInRange() {
         return coordinateInRange;
     }
-
-
 }

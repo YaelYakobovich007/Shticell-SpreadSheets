@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="mainContianerVbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" stylesheets="@../../util/leftMenu_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.rangePanel.RangePanelController">
+<VBox fx:id="mainContianerVbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" stylesheets="@../../util/leftMenuDesign/leftMenu_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.rangePanel.RangePanelController">
    <children>
       <Label maxHeight="35.0" maxWidth="210.0" minHeight="35.0" minWidth="210.0" prefHeight="0.0" prefWidth="210.0" text="  view Range:">
          <graphic>

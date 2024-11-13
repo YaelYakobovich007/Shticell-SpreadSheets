@@ -1,0 +1,33 @@
+.action-button{
+    -fx-background-color: #64b5f6;
+    -fx-text-fill: Black;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.header-label{
+    -fx-background-color: rgba(163, 39, 39, 0);
+    -fx-text-fill: Black;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-border-radius: 5;
+    -fx-border-color: rgb(25, 118, 210);
+    -fx-border-width: 5;
+}
+
+
+.title-label {
+    -fx-text-fill: #0d47a1;
+    -fx-font-size: 30px;
+    -fx-font-family: "Guttman-Aharoni Bold";
+    -fx-font-weight: bold;
+    -fx-background-color: transparent;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.25) , 8,0.5,0,1 );
+    -fx-padding: 10;
+    -fx-text-alignment: center;
+}
+
+.name{
+    -fx-text-fill: blue;
+}

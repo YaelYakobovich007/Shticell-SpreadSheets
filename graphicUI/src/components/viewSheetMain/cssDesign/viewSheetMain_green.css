@@ -1,0 +1,32 @@
+.scroll-pane {
+    -fx-background: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 15;
+    -fx-padding: 10;
+}
+
+.scroll-pane .scroll-bar {
+    -fx-background-color: white;
+}
+
+.border-pane{
+    -fx-background-color: rgb(131, 197, 131)
+}
+
+.box-white {
+    -fx-background-color: white;
+    -fx-padding: 10;
+}
+
+.vbox-padding {
+    -fx-padding: 10 0 0 0;
+}
+.action-button{
+    -fx-background-color: #83c583;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5;
+    -fx-border-radius: 10;
+
+}
+

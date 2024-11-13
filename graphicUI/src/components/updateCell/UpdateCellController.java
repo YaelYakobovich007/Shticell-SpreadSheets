@@ -1,31 +1,39 @@
 package components.updateCell;
 
 import AnimationUtil.PopUpWindowAnimator;
-import components.app.AppController;
+import components.viewSheetMain.ViewSheetMainController;
+import engine.SheetDTO;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+import org.jetbrains.annotations.NotNull;
+import util.Constants;
 import util.PopupManager;
+import java.io.IOException;
 
 public class UpdateCellController {
     @FXML private TextField cellValueField;
     @FXML private Label errorLabel;
     @FXML private Label successLabel;
     @FXML private ScrollPane mainContinerScrollPane;
-    private AppController mainController;
+    private ViewSheetMainController mainController;
     private Stage stage;
 
     @FXML
     private void initialize() {
-        AppController.themeProperty().addListener((obs, oldTheme, newTheme) -> updateStyleSheet(newTheme));
-        updateStyleSheet(AppController.themeProperty().get());
+        ViewSheetMainController.themeProperty().addListener((obs, oldTheme, newTheme) -> updateStyleSheet(newTheme));
+        updateStyleSheet(ViewSheetMainController.themeProperty().get());
     }
 
     private void updateStyleSheet(String newStyle) {
-        String styleSheet = getClass().getResource("/util/popupWindow_" +newStyle+".css").toExternalForm();
+        String styleSheet = getClass().getResource("/util/popUpWindowDesign/popupWindow_" +newStyle+".css").toExternalForm();
         mainContinerScrollPane.getStylesheets().clear();
         mainContinerScrollPane.getStylesheets().add(styleSheet);
     }
@@ -35,29 +43,49 @@ public class UpdateCellController {
         PopUpWindowAnimator.applySlideOut(stage);
     }
 
-    @FXML void handleUpdateButton(ActionEvent event){
+
+    @FXML
+    void handleUpdateButton(ActionEvent event) {
         String newValue = cellValueField.getText();
         successLabel.setVisible(false);
         errorLabel.setVisible(false);
-        try {
-            mainController.updateCell(newValue);
-            PopupManager.showSuccessPopup("Cell updated successfully!");
-            stage.close();
-            cellValueField.clear();
-        } catch (Exception e){
-            PopupManager.showErrorPopup(e.getMessage());
-            errorLabel.setVisible(true);
-            cellValueField.clear();
-        }
 
+        mainController.updateCell(newValue, new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                Platform.runLater(() -> {
+                    PopupManager.showErrorPopup("Failed to update cell: " + e.getMessage());
+                    cellValueField.clear();
+                });
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                String responseBody = response.body() != null ? response.body().string() : "";
+                if (response.isSuccessful()) {
+                    SheetDTO sheetDTO = Constants.GSON_INSTANCE.fromJson(responseBody, SheetDTO.class);
+                    Platform.runLater(() -> {
+                        mainController.updateAllCellContent(sheetDTO);
+                        mainController.updateHeaderInfo();
+                        PopupManager.showSuccessPopup("Cell updated successfully!");
+                        stage.close();
+                    });
+                } else {
+                    String errorMessage = responseBody.isEmpty() ? "Unknown error" : responseBody;
+                    Platform.runLater(() -> {
+                        PopupManager.showErrorPopup("Failed to update cell: " + errorMessage);
+                        cellValueField.clear();
+                    });
+                }
+            }
+        });
     }
 
-    public void setMainController(AppController appController) {
-        this.mainController = appController;
+    public void setMainController(ViewSheetMainController viewSheetMainController) {
+        this.mainController = viewSheetMainController;
     }
 
     public void setStage(Stage stage) {
         this.stage = stage;
     }
-
 }

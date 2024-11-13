@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="mainContinerVbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="159.0" prefWidth="234.0" spacing="10.0" stylesheets="@../../util/leftMenu_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.sortFilterPanel.SortFilterPanelController">
+<VBox fx:id="mainContinerVbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="159.0" prefWidth="234.0" spacing="10.0" stylesheets="@../../util/leftMenuDesign/leftMenu_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.sortFilterPanel.SortFilterPanelController">
    <children>
 
       <Button fx:id="sortRowsButton" maxHeight="40.0" maxWidth="200.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" onAction="#handleSortRowsAction" prefHeight="40.0" prefWidth="200.0" text="  Sort Rows">

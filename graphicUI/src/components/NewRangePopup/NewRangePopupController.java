@@ -1,13 +1,22 @@
 package components.NewRangePopup;
 
 import AnimationUtil.PopUpWindowAnimator;
-import components.app.AppController;
+import components.viewSheetMain.ViewSheetMainController;
+import engine.SheetDTO;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+import org.jetbrains.annotations.NotNull;
+import util.Constants;
 import util.PopupManager;
+
+import java.io.IOException;
 
 public class NewRangePopupController {
 
@@ -16,21 +25,21 @@ public class NewRangePopupController {
     @FXML private TextField rangeNameTextField;
     @FXML private ScrollPane mainContinerScrollPane;
 
-    private AppController mainController;
+    private ViewSheetMainController mainController;
     private Stage stage;
 
     @FXML
     private void initialize() {
         setupThemeListener();
-        applyCurrentTheme(AppController.themeProperty().get());
+        applyCurrentTheme(ViewSheetMainController.themeProperty().get());
     }
 
     private void setupThemeListener() {
-        AppController.themeProperty().addListener((obs, oldTheme, newTheme) -> applyCurrentTheme(newTheme));
+        ViewSheetMainController.themeProperty().addListener((obs, oldTheme, newTheme) -> applyCurrentTheme(newTheme));
     }
 
     private void applyCurrentTheme(String newStyle) {
-        String styleSheet = getClass().getResource("/util/popupWindow_" +newStyle+".css").toExternalForm();
+        String styleSheet = getClass().getResource("/util/popUpWindowDesign/popupWindow_" +newStyle+".css").toExternalForm();
         mainContinerScrollPane.getStylesheets().clear();
         mainContinerScrollPane.getStylesheets().add(styleSheet);
     }
@@ -58,16 +67,43 @@ public class NewRangePopupController {
         String fromBoundaries = fromBoundariesTextField.getText();
         String toBoundaries = toBoundariesTextField.getText();
         String rangeName = rangeNameTextField.getText();
-        try {
-            mainController.createNewRange(rangeName, fromBoundaries, toBoundaries);
-            PopupManager.showSuccessPopup("Range created successfully.");
-            stage.close();
-        } catch (Exception e) {
-            PopupManager.showErrorPopup("Error: " + e.getMessage());
-        }
+
+        mainController.createNewRange(rangeName, fromBoundaries, toBoundaries, new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                Platform.runLater(() -> {
+                    PopupManager.showErrorPopup("Failed to create range: " + e.getMessage());
+                    fromBoundariesTextField.clear();
+                    toBoundariesTextField.clear();
+                    rangeNameTextField.clear();
+                });
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String responseBody = response.body() != null ? response.body().string() : "";
+                    SheetDTO sheetDTO = Constants.GSON_INSTANCE.fromJson(responseBody, SheetDTO.class);
+                    Platform.runLater(() -> {
+                        mainController.updateContentAfterCreateNewRange(sheetDTO,rangeName);
+
+                        PopupManager.showSuccessPopup("Range created successfully.");
+                        stage.close();
+                    });
+                } else {
+                    String errorMessage = response.body() != null ? response.body().string() : "Unknown error";
+                    Platform.runLater(() -> {
+                        PopupManager.showErrorPopup("Failed to create range: " + errorMessage);
+                        fromBoundariesTextField.clear();
+                        toBoundariesTextField.clear();
+                        rangeNameTextField.clear();
+                    });
+                }
+            }
+        });
     }
 
-    public void setMainController(AppController mainController) {
+    public void setMainController(ViewSheetMainController mainController) {
         this.mainController = mainController;
     }
 

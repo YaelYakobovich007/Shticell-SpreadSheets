@@ -1,78 +1,136 @@
 package components.dynamicAnalysis;
 
-import components.app.AppController;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
+import components.viewSheetMain.ViewSheetMainController;
+import engine.SheetDTO;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Slider;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+import org.jetbrains.annotations.NotNull;
+import util.Constants;
+import util.PopupManager;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 
 public class DynamicSliderController {
+    @FXML private VBox sliderContainer;
+    @FXML private ScrollPane sliderScrollPane;
+    @FXML private Button finishButton;
+    private ViewSheetMainController mainController;
+    private Set<SelectedCell> selectedCells;
+    private final Map<String, String> cellOriginalValues = new HashMap<>();
+    private final Map<String, String> updatedCells = new HashMap<>();
 
-    @FXML private Label minValueLabel;
-    @FXML private Label maxValueLabel;
-    @FXML private Label stepSizeLabel;
-    @FXML private Label currentValueLabel;
-    @FXML private Slider valueSlider;
-    @FXML private Label cellLabel;
 
-    private String cellId;
-    private double originalCellValue;
-    private AppController mainController ;
-
-    public void setMainAppController(AppController mainController) {
+    public void setMainAppController(ViewSheetMainController mainController) {
         this.mainController = mainController;
     }
 
-    public void setSliderValues(double minValue, double maxValue, double stepSize, double currentValue, String cellID) {
-        initializeSlider(minValue, maxValue, stepSize, currentValue);
-        initializeLabels(minValue, maxValue, stepSize, currentValue, cellID);
-        addSliderValueChangeListener();
+    public void setSelectedCells(Set<SelectedCell> selectedCells) {
+        this.selectedCells = selectedCells;
+        initializeSliders();
     }
 
-    private void addSliderValueChangeListener() {
-        valueSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            double newValueDouble = newValue.doubleValue();
-            currentValueLabel.setText(String.format("%.2f", newValueDouble));
-            handleSliderValueChange(oldValue.doubleValue(), newValueDouble);
-        });
+    private void initializeSliders() {
+        sliderContainer.getChildren().clear();
+        for (SelectedCell cell : selectedCells) {
+            HBox sliderBox = createSliderBox(cell);
+            sliderContainer.getChildren().add(sliderBox);
+            cellOriginalValues.put(cell.getCellId(), String.valueOf(cell.getOrignalValue()));
+        }
     }
 
-    private void initializeSlider(double minValue, double maxValue, double stepSize, double currentValue) {
-        this.originalCellValue = currentValue;
-        valueSlider.setMin(minValue);
-        valueSlider.setMax(maxValue);
-        valueSlider.setValue(currentValue);
-        valueSlider.setMajorTickUnit(stepSize);
-        valueSlider.setBlockIncrement(stepSize);
+    private HBox createSliderBox(SelectedCell cell) {
+        HBox cellBox = createLabelHBox("Cell for analysis:", cell.getCellId());
+        HBox minValueBox = createLabelHBox("Min Value:", String.valueOf(cell.getMinValue()));
+        HBox maxValueBox = createLabelHBox("Max Value:", String.valueOf(cell.getMaxValue()));
+        HBox stepSizeBox = createLabelHBox("Step Size:", String.valueOf(cell.getStepSize()));
+        HBox currentValueBox = createLabelHBox("Current Value:", String.format("%.2f", cell.getOrignalValue()));
+
+        Slider valueSlider = createSlider(cell, currentValueBox);
+
+        HBox sliderBox = new HBox(10);
+        sliderBox.getChildren().addAll(valueSlider);
+        sliderBox.setAlignment(Pos.CENTER_LEFT);
+        sliderBox.setPrefWidth(800);
+        HBox.setHgrow(valueSlider, Priority.ALWAYS);
+
+        HBox sliderEntryBox = new HBox(10);
+        sliderEntryBox.setPadding(new Insets(10));
+        sliderEntryBox.getChildren().addAll(cellBox, minValueBox, maxValueBox, stepSizeBox, currentValueBox, sliderBox);
+        HBox.setHgrow(sliderEntryBox, Priority.ALWAYS);
+
+        return sliderEntryBox;
+    }
+
+    private HBox createLabelHBox(String labelText, String valueText) {
+        HBox hbox = new HBox(10);
+        Label label = new Label(labelText);
+        Label valueLabel = new Label(valueText);
+        hbox.getChildren().addAll(label, valueLabel);
+        hbox.setAlignment(Pos.CENTER);
+        return hbox;
+    }
+
+    private Slider createSlider(SelectedCell cell, HBox currentValueBox) {
+        Slider valueSlider = new Slider(cell.getMinValue(), cell.getMaxValue(), cell.getOrignalValue());
+        valueSlider.setMajorTickUnit(cell.getStepSize());
+        valueSlider.setBlockIncrement(cell.getStepSize());
         valueSlider.setMinorTickCount(0);
         valueSlider.setSnapToTicks(true);
         valueSlider.setShowTickMarks(true);
         valueSlider.setShowTickLabels(true);
+        valueSlider.getStyleClass().add("slider");
+
+        Label currentValueLabel = (Label) currentValueBox.getChildren().get(1);
+        valueSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            double newValueDouble = newValue.doubleValue();
+            currentValueLabel.setText(String.format("%.2f", newValueDouble));
+            handleSliderValueChange(cell.getCellId(), oldValue.doubleValue(), newValueDouble);
+        });
+
+        return valueSlider;
     }
 
-    private void initializeLabels(double minValue, double maxValue, double stepSize, double currentValue, String cellID) {
-        this.cellId = cellID;
-        cellLabel.setText(cellID);
-        minValueLabel.setText(String.valueOf(minValue));
-        maxValueLabel.setText(String.valueOf(maxValue));
-        stepSizeLabel.setText(String.valueOf(stepSize));
-        currentValueLabel.setText(String.format("%.2f", currentValue));
-    }
+    private void handleSliderValueChange(String cellID, double oldValue, double newValue) {
+        if (newValue != oldValue) {
+            updatedCells.put(cellID, String.valueOf(newValue));
+            mainController.updateTemporaryValuesInSheet(updatedCells, new Callback() {
+                @Override
+                public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                    Platform.runLater(() -> PopupManager.showErrorPopup(e.getMessage()));
+                }
 
-    private void handleSliderValueChange(double oldValue,double newValue) {
-        if(newValue!=oldValue) {
-            mainController.updateTemporaryValuesInSheet(String.valueOf(newValue),cellId);
+                @Override
+                public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                    if (response.isSuccessful()) {
+                        String responseBody = response.body() != null ? response.body().string() : "";
+                        SheetDTO updatedSheet = Constants.GSON_INSTANCE.fromJson(responseBody, SheetDTO.class);
+                        Platform.runLater(() -> mainController.updateAllCellContent(updatedSheet));
+                    } else {
+                        String errorMessage = response.body() != null ? response.body().string() : "Unknown error";
+                        Platform.runLater(() -> PopupManager.showErrorPopup(errorMessage));
+                    }
+                }
+            });
         }
     }
 
     @FXML
-    void handleFinishAction(ActionEvent event) {
-        mainController.hideSlider(cellId,originalCellValue);
+    void handleFinishAction() {
+        mainController.hideSlider(cellOriginalValues);
     }
-
-
-
 }

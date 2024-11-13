@@ -21,4 +21,6 @@ public interface SheetReadActions extends Serializable {
      Map<Coordinate, String> getTextColors();
      Set<EffectiveValue> getUniqueValuesForColumn(Character column,Coordinate from,Coordinate to);
     void addNewRangeInUse(String rangeName);
+    String getOwnerName();
+    Sheet copySheet();
 }

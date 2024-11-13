@@ -2,7 +2,6 @@ package sheet.version.impl;
 import sheet.api.Sheet;
 import sheet.version.api.Version;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,12 +26,7 @@ public class VersionManager implements Serializable {
         }
     }
 
-    public Collection<Version> getVersions() {
-         return sheetVersions.values();
-    }
-
     public Integer getNumOfVersions() {
         return sheetVersions.size();
     }
-
 }

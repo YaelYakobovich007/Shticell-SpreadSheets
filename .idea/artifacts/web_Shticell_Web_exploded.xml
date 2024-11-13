@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="web-Shticell:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/web_Shticell_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="web-Shticell/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="web-Shticell" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="artifact" artifact-name="EngineJar" />
+          <element id="artifact" artifact-name="DTOJar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane fx:id="mainContinerScrollPane" fitToHeight="true" fitToWidth="true" stylesheets="@../../util/popupWindow_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.filter.FilterController">
+<ScrollPane fx:id="mainContinerScrollPane" fitToHeight="true" fitToWidth="true" stylesheets="@../../util/popUpWindowDesign/popupWindow_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.filter.FilterController">
    <content>
       <FlowPane alignment="CENTER" style="-fx-background-color: white;">
          <children>

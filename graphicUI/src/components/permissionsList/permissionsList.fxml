@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="1.7976931348623157E308" prefHeight="455.0" prefWidth="529.0" spacing="3.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.permissionsList.PermissionsListController">
+    <children>
+        <Label fx:id="permissionDetailsLabel" text="Permissions List:">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+            <VBox.margin>
+                <Insets bottom="8.0" top="8.0" />
+            </VBox.margin>
+        </Label>
+        <TableView fx:id="permissionTableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="200.0" minWidth="300.0" prefWidth="400.0">
+            <columns>
+                <TableColumn fx:id="usernameColumn" prefWidth="100.0" text="User" />
+                <TableColumn fx:id="requestTypeColumn" prefWidth="150.0" text="Request Type" />
+                <TableColumn fx:id="statusColumn" prefWidth="100.0" text="Status" />
+            </columns>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </TableView>
+    </children>
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
+</VBox>

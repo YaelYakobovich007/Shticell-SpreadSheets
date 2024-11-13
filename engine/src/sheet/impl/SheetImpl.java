@@ -2,7 +2,6 @@ package sheet.impl;
 
 import exception.CircularReferenceException;
 import filtering.SheetFilter;
-import javafx.scene.paint.Color;
 import parse.ExpressionFactory;
 import range.Boundaries;
 import range.Range;
@@ -13,20 +12,20 @@ import sheet.cell.api.Cell;
 import sheet.cell.api.EffectiveValue;
 import sheet.cell.impl.CellImpl;
 import sheet.coordinate.Coordinate;
+import sheet.coordinate.CoordinateFactory;
+import sort.SheetSorter;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.ByteArrayInputStream;
 import java.util.*;
 import java.util.stream.Collectors;
-import sheet.coordinate.CoordinateFactory;
-import sort.SheetSorter;
-import utils.ColorUtil;
 
 
 public class SheetImpl implements Sheet {
     private Map<Coordinate, Cell> activeCells;
     private final String name;
+    private final String ownerName;
     private final Layout layout;
     private int versionNumber;
     private  int changedCellsCount;
@@ -34,8 +33,9 @@ public class SheetImpl implements Sheet {
     private Map<Coordinate, String> backgroundColors;
     private Map<Coordinate, String> textColors;
 
-    public SheetImpl(String name, Layout layout, RangesManager rangesManager) {
+    public SheetImpl(String name, String ownerName, Layout layout, RangesManager rangesManager) {
         this.name = name;
+        this.ownerName = ownerName;
         this.layout = layout;
         this.activeCells = new HashMap<>();
         this.versionNumber=1;
@@ -55,37 +55,39 @@ public class SheetImpl implements Sheet {
         return activeCells.get(CoordinateFactory.createCoordinate(row, column));
     }
 
-    public Sheet updateCellValueAndCalculate(int row, int column, String value){
+    @Override
+    public Sheet updateCellValueAndCalculate(int row, int column, String value, String updatedByUser){
         Coordinate coordinate = CoordinateFactory.createCoordinate(row, column);
         SheetImpl newSheetVersion = copySheet();
-        //
+
         newSheetVersion.rangesManager.resetAllRangeInUse();
-        //
+
         int newVersionNumber = newSheetVersion.getVersionNumber()+ 1;
         ExpressionFactory.setSheet(newSheetVersion);
 
-        Cell cell= newSheetVersion.getOrInitializeCell(coordinate,value, newVersionNumber);
+        Cell cell= newSheetVersion.getOrInitializeCell(coordinate,value, newVersionNumber,updatedByUser);
+
         boolean isCellValueChanged= newSheetVersion.hasCellValueChanged(cell,value,newVersionNumber);
         try {
             List<Cell> changedCells = newSheetVersion.recalculateAndGetChangedCells();
+            changedCells.forEach(changedCell -> changedCell.setUpdatedByUser(updatedByUser));
             newSheetVersion.updateSheetVersionIfNecessary(changedCells, isCellValueChanged);
-
             return newSheetVersion;
-
         }catch (Exception e){
             ExpressionFactory.setSheet(this);
             throw e;
         }
     }
 
-    private Cell getOrInitializeCell(Coordinate coordinate, String value, int newVersionNumber) {
+    private Cell getOrInitializeCell(Coordinate coordinate, String value, int newVersionNumber,String updatedByUser) {
         return Optional.ofNullable(activeCells.get(coordinate))
                 .map(cell -> {
                     cell.setCellOriginalValue(value);
+                    cell.setUpdatedByUser(updatedByUser);
                     return cell;
                 })
                 .orElseGet(() -> {
-                    Cell newCell = new CellImpl(coordinate.getRow(), coordinate.getColumn(), value, newVersionNumber);
+                    Cell newCell = new CellImpl(coordinate.getRow(), coordinate.getColumn(), value, newVersionNumber,updatedByUser);
                     activeCells.put(coordinate, newCell);
                     return newCell;
                 });
@@ -94,19 +96,13 @@ public class SheetImpl implements Sheet {
     private boolean hasCellValueChanged(Cell cell , String value, int newVersionNumber){
         if (value.isEmpty()) {
             activeCells.remove(cell.getCoordinate());
-
-            //מה קורה שמוחקים עכשיו תא ?
             return true;
         }
-
         boolean hasValueChanged = cell.calculateEffectiveValue();
-
         if (hasValueChanged) {
             cell.updateVersion(newVersionNumber);
         }
-
         return hasValueChanged;
-
     }
 
     public List<Cell> recalculateAndGetChangedCells() {
@@ -135,7 +131,7 @@ public class SheetImpl implements Sheet {
         Coordinate coordinate = CoordinateFactory.createCoordinate(row, column);
         Cell cell = activeCells.get(coordinate);
         if (cell == null) {
-            cell = new CellImpl(row, column,value, getVersionNumber());
+            cell = new CellImpl(row, column,value, getVersionNumber(),ownerName);
         }
         ExpressionFactory.setSheet(this);
         activeCells.put(coordinate, cell);
@@ -223,7 +219,7 @@ public class SheetImpl implements Sheet {
         newSheetVersion.rangesManager.resetAllRangeInUse();
         ExpressionFactory.setSheet(newSheetVersion);
         try {
-            List<Cell> changedCells = newSheetVersion.recalculateAndGetChangedCells();
+            newSheetVersion.recalculateAndGetChangedCells();
             return newSheetVersion;
 
         }catch (Exception e){
@@ -238,7 +234,7 @@ public class SheetImpl implements Sheet {
         newSheetVersion.rangesManager.resetAllRangeInUse();
         ExpressionFactory.setSheet(newSheetVersion);
         try {
-            List<Cell> changedCells = newSheetVersion.recalculateAndGetChangedCells();
+            newSheetVersion.recalculateAndGetChangedCells();
             return newSheetVersion;
         }catch (Exception e){
             ExpressionFactory.setSheet(this);
@@ -276,18 +272,22 @@ public class SheetImpl implements Sheet {
         this.activeCells= newActiveCell;
     }
 
-    public void setBackgroundColor(Coordinate coordinate, Color color) {
-        backgroundColors.put(coordinate, ColorUtil.colorToHex(color));
+
+    public void setBackgroundColor(Coordinate coordinate, String color) {
+        if (color.equals("#FFFFFF")) {
+            backgroundColors.remove(coordinate);
+        } else {
+            backgroundColors.put(coordinate, color);
+        }
     }
 
-    public void setTextColor(Coordinate coordinate, Color color) {
-        textColors.put(coordinate, ColorUtil.colorToHex(color));
+    public void setTextColor(Coordinate coordinate, String color) {
+        if (color.equals("#000000")) {
+            textColors.remove(coordinate);
+        } else {
+            textColors.put(coordinate, color);
+        }
     }
-
-
-
-
-
 
     public Map<Coordinate, String> getBackgroundColors() {
         return backgroundColors;
@@ -325,18 +325,20 @@ public class SheetImpl implements Sheet {
         Coordinate coordinate = CoordinateFactory.createCoordinate(row, column);
         SheetImpl newSheetVersion = copySheet();
         newSheetVersion.rangesManager.resetAllRangeInUse();
-
         ExpressionFactory.setSheet(newSheetVersion);
-        Cell cell= newSheetVersion.getOrInitializeCell(coordinate,value, newSheetVersion.versionNumber);
-
+        newSheetVersion.getOrInitializeCell(coordinate,value, newSheetVersion.versionNumber,ownerName);
         try {
-            List<Cell> changedCells = newSheetVersion.recalculateAndGetChangedCells();
+            newSheetVersion.recalculateAndGetChangedCells();
+            ExpressionFactory.setSheet(this);
             return newSheetVersion;
-
         }catch (Exception e){
             ExpressionFactory.setSheet(this);
             throw e;
         }
+    }
+
+    public  String getOwnerName(){
+        return ownerName;
     }
 
 }

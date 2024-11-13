@@ -1,0 +1,78 @@
+.action-button{
+    -fx-background-color: #83c583;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5;
+    -fx-border-radius: 10;
+}
+
+.header-label{
+    -fx-background-color: #27a38c;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+
+.title-label {
+    -fx-text-fill: #2b6a2b;
+    -fx-font-size: 30px;
+    -fx-font-family: "Guttman-Aharoni Bold";
+    -fx-font-weight: bold;
+    -fx-background-color: transparent;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.25) , 8,0.5,0,1 );
+    -fx-padding: 10;
+    -fx-text-alignment: center;
+}
+
+.action-line{
+    -fx-background-color: rgba(128, 128, 128, 0.23);
+    -fx-background-radius: 10;
+    -fx-border-radius: 20;
+    -fx-font-size: 14px;
+}
+
+.combo-box-popup .list-view {
+    -fx-max-height: 150px;
+    -fx-pref-height: 150px;
+    -fx-min-height: 150px;
+}
+
+.transparent-scrollpane {
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+    -fx-background-insets: 0;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+}
+
+
+.transparent-scrollpane .scroll-bar {
+    -fx-opacity: 0.6;
+}
+
+.transparent-scrollpane .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+.latest-version-button-no-update {
+    -fx-background-color: #b0b0b0;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5;
+    -fx-border-radius: 10;
+}
+
+
+.latest-version-button-update {
+    -fx-background-color: #ff4c4c;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5;
+    -fx-border-radius: 10;
+}
+
+.name{
+    -fx-text-fill: green;
+}

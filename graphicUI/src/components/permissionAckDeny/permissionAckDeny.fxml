@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="490.0" prefWidth="671.0" stylesheets="@../../util/popUpWindowDesign/popupWindow_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.permissionAckDeny.PermissionAckDenyController">
+    <content>
+        <FlowPane alignment="CENTER" prefHeight="496.0" prefWidth="651.0">
+            <children>
+                <VBox alignment="CENTER" prefHeight="438.0" prefWidth="669.0" spacing="10.0">
+                    <children>
+                        <Label text="Approve or Deny Permission Requests">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <TableView fx:id="permissionRequestsTable" prefHeight="448.0" prefWidth="669.0">
+                            <columns>
+                                <TableColumn fx:id="usernameColumn" prefWidth="150.0" text="Username" />
+                                <TableColumn fx:id="sheetNameColumn" prefWidth="150.0" text="Sheet Name" />
+                                <TableColumn fx:id="requestTypeColumn" prefWidth="100.0" text="Request Type" />
+                                <TableColumn fx:id="actionColumn" prefWidth="200.0" text="Action" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+            </children>
+        </FlowPane>
+    </content>
+</ScrollPane>

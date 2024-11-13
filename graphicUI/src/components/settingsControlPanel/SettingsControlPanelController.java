@@ -4,7 +4,7 @@ import AnimationUtil.AnimatedToggleSwitch;
 import AnimationUtil.AnimationResolver;
 import AnimationUtil.PopUpWindowAnimator;
 import AnimationUtil.ToggleSwitchManager;
-import components.app.AppController;
+import components.viewSheetMain.ViewSheetMainController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -15,7 +15,7 @@ public class SettingsControlPanelController {
     @FXML private HBox animationsOption;
 
     private final AnimatedToggleSwitch toggleSwitch = new AnimatedToggleSwitch();
-    private AppController mainController;
+    private ViewSheetMainController mainController;
 
     @FXML
     public void initialize() {
@@ -39,10 +39,10 @@ public class SettingsControlPanelController {
 
     @FXML
     void handleStyleSelectionAction(ActionEvent event) {
-        AppController.themeProperty().setValue(styleComboBox.getValue());
+        ViewSheetMainController.themeProperty().setValue(styleComboBox.getValue());
     }
 
-    public void setMainController(AppController mainController) {
+    public void setMainController(ViewSheetMainController mainController) {
         this.mainController = mainController;
     }
 }

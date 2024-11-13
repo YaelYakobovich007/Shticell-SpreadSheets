@@ -37,7 +37,7 @@ public class PopupManager {
         layout.setPadding(new Insets(20));
 
         Scene scene = new Scene(layout, 350, 200);
-        scene.getStylesheets().add(PopupManager.class.getResource("popupWindow_green.css").toExternalForm());
+        scene.getStylesheets().add(PopupManager.class.getResource("popUpWindowDesign/popupWindow_green.css").toExternalForm());
         popupStage.setScene(scene);
         popupStage.show();
     }

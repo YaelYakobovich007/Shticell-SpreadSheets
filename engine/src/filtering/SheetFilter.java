@@ -120,9 +120,10 @@ public class SheetFilter {
                 }
             }
         }
-        newActiveCells.putAll(sheet.getActiveCellMap());
-        newBackgroundColors.putAll(sheet.getBackgroundColors());
-        newTextColors.putAll(sheet.getTextColors());
+
+        sheet.getActiveCellMap().forEach(newActiveCells::put);
+        sheet.getBackgroundColors().forEach(newBackgroundColors::put);
+        sheet.getTextColors().forEach(newTextColors::put);
 
         sheet.setTextColors(newTextColors);
         sheet.setBackgroundColors(newBackgroundColors);

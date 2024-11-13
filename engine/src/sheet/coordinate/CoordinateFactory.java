@@ -24,9 +24,4 @@ public class CoordinateFactory {
         CoordinateParser.validateCoordinates(parseCoordinate[0], parseCoordinate[1],layout);
         return CoordinateFactory.createCoordinate(parseCoordinate[0], parseCoordinate[1]);
     }
-
-
-
-
-
 }

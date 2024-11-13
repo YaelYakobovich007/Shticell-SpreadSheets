@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <servlet-name>LoginShortResponseServlet</servlet-name>
+        <servlet-class>servlets.LightweightLoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginShortResponseServlet</servlet-name>
+        <url-pattern>/loginShortResponse</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SheetListServlet</servlet-name>
+        <servlet-class>servlets.SheetListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SheetListServlet</servlet-name>
+        <url-pattern>/sheetList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SortRowsServlet</servlet-name>
+        <servlet-class>servlets.SortRowsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SortRowsServlet</servlet-name>
+        <url-pattern>/sortRows</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ValidateBoundariesServlet</servlet-name>
+        <servlet-class>servlets.ValidateBoundariesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ValidateBoundariesServlet</servlet-name>
+        <url-pattern>/validateBoundaries</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>IsCellOriginalValueNumericServlet</servlet-name>
+        <servlet-class>servlets.IsCellOriginalValueNumericServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IsCellOriginalValueNumericServlet</servlet-name>
+        <url-pattern>/isCellNumeric</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DynamicAnalysisServlet</servlet-name>
+        <servlet-class>servlets.DynamicAnalysisServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DynamicAnalysisServlet</servlet-name>
+        <url-pattern>/dynamicAnalysis</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetSheetByVersionServlet</servlet-name>
+        <servlet-class>servlets.GetSheetByVersionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetSheetByVersionServlet</servlet-name>
+        <url-pattern>/getSheetByVersion</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>PermissionListServlet</servlet-name>
+        <servlet-class>servlets.PermissionListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PermissionListServlet</servlet-name>
+        <url-pattern>/permissionList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PendingRequestsServlet</servlet-name>
+        <servlet-class>servlets.PendingRequestsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PendingRequestsServlet</servlet-name>
+        <url-pattern>/getPendingRequestsForOwner</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>IsVersionUpToDateServlet</servlet-name>
+        <servlet-class>servlets.IsVersionUpToDateServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>IsVersionUpToDateServlet</servlet-name>
+        <url-pattern>/isVersionUpToDate</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetSheetVersionCountServlet</servlet-name>
+        <servlet-class>servlets.GetSheetVersionCountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetSheetVersionCountServlet</servlet-name>
+        <url-pattern>/getSheetVersionCount</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ClearSessionServlet</servlet-name>
+        <servlet-class>servlets.ClearSessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClearSessionServlet</servlet-name>
+        <url-pattern>/clear-session</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RangeServlet</servlet-name>
+        <servlet-class>servlets.RangeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RangeServlet</servlet-name>
+        <url-pattern>/range</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SheetServlet</servlet-name>
+        <servlet-class>servlets.SheetServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SheetServlet</servlet-name>
+        <url-pattern>/sheet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CellServlet</servlet-name>
+        <servlet-class>servlets.CellServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CellServlet</servlet-name>
+        <url-pattern>/cell</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateCellStyleServlet</servlet-name>
+        <servlet-class>servlets.UpdateCellStyleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateCellStyleServlet</servlet-name>
+        <url-pattern>/updateCellStyle</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PermissionServlet</servlet-name>
+        <servlet-class>servlets.PermissionServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PermissionServlet</servlet-name>
+        <url-pattern>/permissions</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FilterServlet</servlet-name>
+        <servlet-class>servlets.FilterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FilterServlet</servlet-name>
+        <url-pattern>/filterSheet</url-pattern>
+    </servlet-mapping>
+
+</web-app>
+

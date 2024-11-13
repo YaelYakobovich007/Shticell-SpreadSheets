@@ -2,11 +2,9 @@ package range;
 
 import sheet.coordinate.Coordinate;
 import sheet.coordinate.CoordinateFactory;
-
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-
 
 public class Range implements Serializable {
 

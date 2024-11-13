@@ -9,5 +9,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="engine" />
     <orderEntry type="library" name="javafx.graphics" level="project" />
+    <orderEntry type="library" name="gson-2.1" level="project" />
+    <orderEntry type="library" name="gson-2.1-sources" level="project" />
+    <orderEntry type="library" name="gson-2.1-javadoc" level="project" />
   </component>
 </module>

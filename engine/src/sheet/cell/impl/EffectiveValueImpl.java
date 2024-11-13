@@ -3,7 +3,6 @@ package sheet.cell.impl;
 import parse.ExpressionFactory;
 import sheet.cell.api.CellType;
 import sheet.cell.api.EffectiveValue;
-
 import java.util.Objects;
 
 public class EffectiveValueImpl implements EffectiveValue {

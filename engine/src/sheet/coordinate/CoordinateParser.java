@@ -22,7 +22,6 @@ public class CoordinateParser {
                     "Invalid row number in coordinate: " + coordinate + ". The row number should be a valid integer (e.g., A1, B10)."
             );
         }
-
         int column = columnChar - 'A' + 1;
 
         return new int[]{row, column};

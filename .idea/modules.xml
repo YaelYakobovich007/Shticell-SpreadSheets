@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/dto/dto.iml" filepath="$PROJECT_DIR$/dto/dto.iml" />
       <module fileurl="file://$PROJECT_DIR$/engine/engine.iml" filepath="$PROJECT_DIR$/engine/engine.iml" />
       <module fileurl="file://$PROJECT_DIR$/graphicUI/graphicUI.iml" filepath="$PROJECT_DIR$/graphicUI/graphicUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-Shticell/web-Shticell.iml" filepath="$PROJECT_DIR$/web-Shticell/web-Shticell.iml" />
     </modules>
   </component>
 </project>

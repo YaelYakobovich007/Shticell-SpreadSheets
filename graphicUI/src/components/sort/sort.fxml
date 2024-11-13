@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane fx:id="mainContianerScrollPane" fitToHeight="true" fitToWidth="true" stylesheets="@../../util/popupWindow_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.sort.SortController">
+<ScrollPane fx:id="mainContianerScrollPane" fitToHeight="true" fitToWidth="true" stylesheets="@../../util/popUpWindowDesign/popupWindow_green.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="components.sort.SortController">
    <content>
       <FlowPane alignment="CENTER" hgap="10" style="-fx-background-color: white;" vgap="10">
          <children>

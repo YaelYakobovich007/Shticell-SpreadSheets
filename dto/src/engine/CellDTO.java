@@ -1,63 +1,33 @@
 package engine;
 
 import sheet.cell.api.Cell;
-import sheet.cell.api.EffectiveValue;
-import sheet.coordinate.Coordinate;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class CellDTO {
-    public final Coordinate coordinate;
+    public final CoordinateDTO coordinate;
     private String originalValue;
-    private EffectiveValue effectiveValue;
+    private String effectiveValue;
     private int lastModifiedVersion;
-    private List<CellDTO> dependsOn;
-    private List<CellDTO> influencingOn;
+    private String updatedByUser;
+    private Set<String> dependsOn;
+    private Set<String> influencingOn;
 
-     public static CellDTO createCellDTO(Cell cell){
-         if (cell == null)
-             return null;
-         return new CellDTO(cell,new HashSet<>());
-     }
-    private CellDTO(Cell cell, Set<Coordinate>  visitedCoordinates) {
-        this.coordinate = cell.getCoordinate();
+    public static CellDTO createCellDTO(Cell cell){
+        if (cell == null)
+            return null;
+        return new CellDTO(cell);
+    }
+    private CellDTO(Cell cell) {
+        this.coordinate =new CoordinateDTO(cell.getCoordinate());
         this.originalValue= cell.getOriginalValue();
-        this.effectiveValue =cell.getEffectiveValue();
+        this.updatedByUser= cell.getUpdatedByUser();
+        this.effectiveValue =FormattedValuePrinter.formatValue(cell.getEffectiveValue());
         this.lastModifiedVersion= cell.getVersion();
-
-        this.dependsOn = new ArrayList<>();
-        this.influencingOn = new ArrayList<>();
-        populateDependencies(cell, visitedCoordinates);
+        this.dependsOn =extractCoordinates(cell.getDependsOn());
+        this.influencingOn = extractCoordinates(cell.getInfluencingOn());
     }
 
-    private void populateDependencies(Cell cell, Set<Coordinate> visitedCoordinates) {
-        if (visitedCoordinates.contains(this.coordinate)) {
-            return;
-        }
-
-        visitedCoordinates.add(this.coordinate);
-
-        for (Cell dependCell : cell.getDependsOn()) {
-            if (!this.coordinate.equals(dependCell.getCoordinate())) {
-                CellDTO dependDTO = new CellDTO(dependCell,visitedCoordinates);
-                dependDTO.populateDependencies(dependCell, visitedCoordinates);
-                this.dependsOn.add(dependDTO);
-            }
-        }
-
-        for (Cell influenceCell : cell.getInfluencingOn()) {
-            if (!this.coordinate.equals(influenceCell.getCoordinate())) {
-                CellDTO influenceDTO = new CellDTO(influenceCell,visitedCoordinates);
-                influenceDTO.populateDependencies(influenceCell, visitedCoordinates);
-                this.influencingOn.add(influenceDTO);
-            }
-        }
-        visitedCoordinates.remove(this.coordinate);
-    }
-
-    public Coordinate getCoordinate() {
+    public CoordinateDTO getCoordinate() {
         return coordinate;
     }
 
@@ -65,7 +35,7 @@ public class CellDTO {
         return originalValue;
     }
 
-    public EffectiveValue getEffectiveValue() {
+    public String getEffectiveValue() {
         return effectiveValue;
     }
 
@@ -73,11 +43,26 @@ public class CellDTO {
         return lastModifiedVersion;
     }
 
-    public List<CellDTO> getDependentSources() {
+    public Set<String> getDependentSources() {
         return dependsOn;
     }
 
-    public List<CellDTO> getInfluencedCells() {
+    public Set<String> getInfluencedCells() {
         return influencingOn;
     }
+
+    public String getUpdatedByUser() {
+        return updatedByUser;
+    }
+
+    private Set<String> extractCoordinates(List<Cell> cells) {
+        Set<String> coordinates = new HashSet<>();
+        for (Cell cell : cells) {
+            coordinates.add(cell.getCoordinate().toString());
+        }
+        return coordinates;
+    }
+
+
+
 }

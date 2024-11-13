@@ -1,19 +1,19 @@
 package engine;
 
-import sheet.coordinate.Coordinate;
+import range.Boundaries;
 
 public class BoundariesDTO {
-    private final Coordinate from;
-    private final Coordinate to;
+    private final String  from;
+    private final String to;
 
-    public BoundariesDTO(Coordinate from, Coordinate to) {
-        this.from = from;
-        this.to = to;
+    public BoundariesDTO(Boundaries boundaries) {
+        this.from = boundaries.getFrom().toString();
+        this.to = boundaries.getTo().toString();
     }
-    public Coordinate getFrom() {
+    public String  getFrom() {
         return from;
     }
-    public Coordinate getTo() {
+    public String getTo() {
         return to;
     }
 }

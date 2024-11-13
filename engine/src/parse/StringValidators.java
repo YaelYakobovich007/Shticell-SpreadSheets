@@ -20,6 +20,6 @@ public class StringValidators
 
     public static boolean isFunction(String input)
     {
-        return input.trim().startsWith("{") && input.endsWith("}");
+        return input.startsWith("{") && input.endsWith("}");
     }
 }

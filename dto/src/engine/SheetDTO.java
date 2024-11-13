@@ -1,29 +1,58 @@
 package engine;
 
-import javafx.scene.paint.Color;
-import sheet.api.Layout;
+import range.Range;
 import sheet.api.Sheet;
-import sheet.coordinate.Coordinate;
-import utils.ColorUtil;
+
 import java.util.HashMap;
 import java.util.Map;
 
+import static engine.CellDTO.createCellDTO;
+
+
 public class SheetDTO {
-    private final String  name;
+    private final String name;
     private final int versionNumber;
-    private final Layout layout;
-    private final Map<Coordinate, CellDTO> activeCells;
-    private final Map<Coordinate,String> backgroundColors;
-    private final Map<Coordinate, String> textColors;
+    private final LayoutDTO layout;
+    private final Map<String, CellDTO> activeCells;
+    private final Map<String,RangeDTO> ranges;
+    private final Map<String, String> backgroundColors;
+    private final Map<String , String> textColors;
+    private String userPermission;
+
 
     public SheetDTO(Sheet sheet) {
         this.name = sheet.getName();
         this.versionNumber = sheet.getVersionNumber();
-        this.layout= sheet.getLayout();
-        this.activeCells= new HashMap<>();
-        sheet.getActiveCellMap().forEach((key, value) -> activeCells.put(key,  CellDTO.createCellDTO(value)));
-        this.backgroundColors = sheet.getBackgroundColors();
-        this.textColors = sheet.getTextColors();
+        this.layout = new LayoutDTO(sheet.getLayout());
+        this.ranges = getRanges(sheet.getRanges());
+
+        this.activeCells = new HashMap<>();
+        sheet.getActiveCellMap().forEach((key, value) -> activeCells.put(key.toString(), createCellDTO(value)));
+
+        this.backgroundColors = new HashMap<>();
+        sheet.getBackgroundColors().forEach((key, value) -> backgroundColors.put(key.toString(), value));
+
+        this.textColors = new HashMap<>();
+        sheet.getTextColors().forEach((key, value) -> textColors.put(key.toString(), value));
+
+    }
+
+    public SheetDTO(Sheet sheet, String userPermission) {
+        this.userPermission= userPermission;
+        this.name = sheet.getName();
+        this.versionNumber = sheet.getVersionNumber();
+        this.layout = new LayoutDTO(sheet.getLayout());
+        this.ranges = getRanges(sheet.getRanges());
+
+        this.activeCells = new HashMap<>();
+        sheet.getActiveCellMap().forEach((key, value) -> activeCells.put(key.toString(), createCellDTO(value)));
+
+        this.backgroundColors = new HashMap<>();
+        sheet.getBackgroundColors().forEach((key, value) -> backgroundColors.put(key.toString(), value));
+
+        this.textColors = new HashMap<>();
+        sheet.getTextColors().forEach((key, value) -> textColors.put(key.toString(), value));
+
     }
 
     public String getSheetName() {
@@ -34,23 +63,35 @@ public class SheetDTO {
         return versionNumber;
     }
 
-    public Layout getLayout() {
+    public LayoutDTO getLayout() {
         return layout;
     }
 
-    public Map<Coordinate, CellDTO> getActiveCells() {
+    public Map<String, CellDTO> getActiveCells() {
         return activeCells;
     }
-
-    public Map<Coordinate, Color> getBackgroundColorsAsColors() {
-        Map<Coordinate, Color> colors = new HashMap<>();
-        backgroundColors.forEach((coordinate, colorString) -> colors.put(coordinate, ColorUtil.hexToColor(colorString)));
-        return colors;
+    public Map<String, String> getBackgroundColors(){
+        return backgroundColors;
     }
 
-    public Map<Coordinate, Color> getTextColorsAsColors() {
-        Map<Coordinate, Color> colors = new HashMap<>();
-        textColors.forEach((coordinate, colorString) -> colors.put(coordinate, ColorUtil.hexToColor(colorString)));
-        return colors;
+    public Map<String, String> getTextColors(){
+        return textColors;
     }
+    public Map<String, RangeDTO> getRanges() {
+        return ranges;
+    }
+
+    private Map<String, RangeDTO> getRanges(Map<String, Range> sheetRanges) {
+        Map<String, RangeDTO> rangeDTOMap = new HashMap<>();
+        for (Map.Entry<String, Range> entry : sheetRanges.entrySet()) {
+            rangeDTOMap.put(entry.getKey(), new RangeDTO(entry.getValue()));
+        }
+        return rangeDTOMap;
+    }
+
+    public String getUserPermission() {
+        return userPermission;
+    }
+
+
 }

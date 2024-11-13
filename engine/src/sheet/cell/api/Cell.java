@@ -1,6 +1,5 @@
 package sheet.cell.api;
 
-import javafx.scene.paint.Color;
 import sheet.coordinate.Coordinate;
 import java.io.Serializable;
 import java.util.List;
@@ -19,5 +18,6 @@ public interface Cell extends Serializable
     void addInfluencingOn(Cell cell);
     void updateVersion(int newVersion);
     void setCoordinate(Coordinate coordinate);
-
+    String getUpdatedByUser();
+    void setUpdatedByUser(String updatedByUser);
 }

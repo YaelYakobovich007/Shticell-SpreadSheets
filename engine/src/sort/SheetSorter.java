@@ -26,7 +26,7 @@ public class SheetSorter {
                 if (cell != null) {
                     rowCells.add(cell);
                 } else {
-                    Cell emptyCell = new CellImpl(row, col, String.valueOf(Double.MAX_VALUE), copySheet.getVersionNumber());
+                    Cell emptyCell = new CellImpl(row, col, String.valueOf(Double.MAX_VALUE), copySheet.getVersionNumber(),copySheet.getOwnerName());
                     rowCells.add(emptyCell);
                 }
             }
@@ -40,7 +40,6 @@ public class SheetSorter {
             int colIndex = getColumnIndex(col, from);
             EffectiveValue value1 = row1.get(colIndex).getEffectiveValue();
             EffectiveValue value2 = row2.get(colIndex).getEffectiveValue();
-
             int cmp = compareValues(value1, value2);
             if (cmp != 0) {
                 return cmp;
@@ -92,9 +91,8 @@ public class SheetSorter {
                 }
             }
         }
-
         copySheet.getActiveCellMap().forEach(newActiveCells::put);
-        copySheet.getBackgroundColors().putAll(newBackgroundColors);
+        copySheet.getBackgroundColors().forEach(newBackgroundColors::put);
         copySheet.getTextColors().forEach(newTextColors::put);
         copySheet.setTextColors(newTextColors);
         copySheet.setBackgroundColors(newBackgroundColors);

@@ -32,8 +32,8 @@ Data Files or Software without restriction, including without limitation
 the rights to use, copy, modify, merge, publish, distribute, and/or sell
 copies of the Data Files or Software, and to permit persons to whom the
 Data Files or Software are furnished to do so, provided that either (a)
-this copyright and permission notice appear with all copies of the Data
-Files or Software, or (b) this copyright and permission notice appear in
+this copyright and sort.permission notice appear with all copies of the Data
+Files or Software, or (b) this copyright and sort.permission notice appear in
 associated Documentation.
 
 THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
@@ -76,9 +76,9 @@ a copy of this software and associated documentation files (the
 without limitation the rights to use, copy, modify, merge, publish,
 distribute, and/or sell copies of the Software, and to permit persons
 to whom the Software is furnished to do so, provided that the above
-copyright notice(s) and this permission notice appear in all copies of
+copyright notice(s) and this sort.permission notice appear in all copies of
 the Software and that both the above copyright notice(s) and this
-permission notice appear in supporting documentation.
+sort.permission notice appear in supporting documentation.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
@@ -123,7 +123,7 @@ Chinese/Japanese Word Break Dictionary Data (cjdict.txt)
  # the distribution.
  #  Neither the name of  Google Inc. nor the names of its
  # contributors may be used to endorse or promote products derived from
- # this software without specific prior written permission.
+ # this software without specific prior written sort.permission.
  #
  #
  #  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
@@ -172,7 +172,7 @@ Chinese/Japanese Word Break Dictionary Data (cjdict.txt)
  #   *   distribution.
  #   * . Neither the name of the TaBE Project nor the names of its
  #   *   contributors may be used to endorse or promote products derived
- #   *   from this software without specific prior written permission.
+ #   *   from this software without specific prior written sort.permission.
  #   *
  #   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  #   * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -206,7 +206,7 @@ Chinese/Japanese Word Break Dictionary Data (cjdict.txt)
  #   * . Neither the name of the Computer Systems and Communication Lab
  #   *   nor the names of its contributors may be used to endorse or
  #   *   promote products derived from this software without specific
- #   *   prior written permission.
+ #   *   prior written sort.permission.
  #   *
  #   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  #   * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -371,7 +371,7 @@ Burmese Word Break Dictionary Data (burmesedict.txt)
  #
  #    Neither the name Myanmar Karen Word Lists, nor the names of its
  #    contributors may be used to endorse or promote products derived
- #    from this software without specific prior written permission.
+ #    from this software without specific prior written sort.permission.
  #
  #  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
  #  CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
@@ -430,7 +430,7 @@ met:
       with the distribution.
     * Neither the name of Google Inc. nor the names of its
       contributors may be used to endorse or promote products derived
-      from this software without specific prior written permission.
+      from this software without specific prior written sort.permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
